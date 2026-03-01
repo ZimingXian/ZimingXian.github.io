@@ -1,0 +1,228 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 从 _data/profile.yml 读取名字 -->
+    <title>{{ site.data.profile.name }} | 主页</title>
+    
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- 左侧侧边栏导航 -->
+    <aside class="sidebar">
+        <!-- 
+            个人信息区域 
+            这里的数据全部来自 _data/profile.yml，修改那个文件即可更新信息
+        -->
+        <div class="intro-header">
+            <h2>{{ site.data.profile.name }}</h2>
+            <p class="text-muted">{{ site.data.profile.role }}</p>
+            
+            <div class="contact-info">
+                {% if site.data.profile.location %}
+                <div><i class="fas fa-map-marker-alt" style="width: 16px;"></i> {{ site.data.profile.location }}</div>
+                {% endif %}
+                
+                {% if site.data.profile.university %}
+                <div><i class="fas fa-university" style="width: 16px;"></i> {{ site.data.profile.university }}</div>
+                {% endif %}
+                
+                <!-- 循环显示邮箱 -->
+                {% if site.data.profile.emails %}
+                    {% for email in site.data.profile.emails %}
+                    <div>
+                        <i class="fas fa-envelope" style="width: 16px;"></i> 
+                        <a href="mailto:{{ email }}" style="color:inherit;">{{ email }}</a>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                
+                <!-- 循环显示社交链接 -->
+                {% if site.data.profile.social_links %}
+                    {% for link in site.data.profile.social_links %}
+                    <div>
+                        <!-- 支持自定义图片图标或 FontAwesome 图标 -->
+                        {% if link.image %}
+                            <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('{{ link.image }}') no-repeat center / contain; mask: url('{{ link.image }}') no-repeat center / contain; vertical-align: text-bottom; margin-right: 0.1rem;" alt="{{ link.name }}"></span>
+                        {% else %}
+                            <i class="{{ link.icon }}" style="width: 16px; text-align: center;"></i> 
+                        {% endif %}
+                        
+                        <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- 简历下载 -->
+                {% if site.data.profile.resume %}
+                <div style="margin-top: 0.5rem;">
+                    <a href="{{ site.data.profile.resume }}" target="_blank" class="resume-btn">
+                        <i class="fas fa-file-download"></i> Download Resume
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- 
+            导航菜单 
+            这里使用 Jekyll 模板循环 _data/projects.yml 中的内容自动生成菜单
+        -->
+        <ul class="nav-links">
+            <!-- 静态链接：个人信息 -->
+            <li><a href="#about" class="category-link"> 个人信息</a></li>
+            
+            <!-- 动态生成分类和子项目链接 -->
+            {% for category in site.data.projects %}
+            <li>
+                <!-- 一级分类标题 (点击跳转到对应 Section) -->
+                <a href="#{{ category.id }}" class="category-link">{{ category.title }}</a>
+                
+                <!-- 二级菜单：列出该分类下的所有项目 -->
+                <ul class="sub-nav">
+                    {% for item in category.items %}
+                    <li>
+                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
+                        <a href="#proj-{{ item.title | slugify }}">{{ item.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- 右侧主要内容区 -->
+    <main>
+        <!-- 个人信息 -->
+        <section id="about" class="intro-section">
+            <h2 style="margin-top:0;">个人信息</h2>
+            <p>{{ site.data.profile.bio }}</p>
+        </section>
+
+        <!-- 
+            循环渲染项目列表 
+            数据来源: _data/projects.yml
+        -->
+        {% for category in site.data.projects %}
+        <section id="{{ category.id }}">
+            <h2 class="section-title">{{ category.title }}</h2>
+            <div class="project-grid">
+                
+                {% for item in category.items %}
+                <!-- 
+                   给每个项目卡片增加一个 ID 用于导航跳转
+                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
+                -->
+                <article class="project-card" id="proj-{{ item.title | slugify }}">
+                    
+                    <!-- 只有当 projects.yml 里填了 image 字段才显示图片区域 -->
+                    {% if item.image %}
+                    <div class="card-image">
+                        <img src="{{ item.image }}" alt="{{ item.title }}">
+                    </div>
+                    {% endif %}
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            {% if item.link %}
+                            <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                            {% else %}
+                            {{ item.title }}
+                            {% endif %}
+                        </h3>
+                        
+                        <p class="card-desc">{{ item.desc }}</p>
+
+                        <!-- 如果有 details 列表，显示为小点 -->
+                        {% if item.details %}
+                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                            {% for detail in item.details %}
+                            <li>{{ detail }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        
+                        <!-- 显示开发状态 -->
+                        {% if item.status %}
+                        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">
+                            <i class="fas fa-spinner"></i> {{ item.status }}
+                        </p>
+                        {% endif %}
+
+                        <!-- 显示技术栈标签 -->
+                        {% if item.tags %}
+                        <div class="card-tags">
+                            {% for tag in item.tags %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <!-- 其他链接（类似于标签，带小图标） -->
+                        {% if item.links %}
+                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            {% for link in item.links %}
+                            <a href="{{ link.url }}" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                {% if link.image %}
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('{{ link.image }}') no-repeat center / contain; mask: url('{{ link.image }}') no-repeat center / contain; margin-right: 0.3rem;" alt="{{ link.title | default: link.name }}"></span>
+                                {% else %}
+                                <i class="{{ link.icon | default: 'fas fa-link' }} fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                {% endif %}
+                                <strong>{{ link.title | default: link.name }}</strong>
+                            </a>
+                            {% endfor %}
+                        </p>
+                        {% endif %}
+                    </div>
+                </article>
+                {% endfor %}
+
+            </div>
+        </section>
+        {% endfor %}
+
+    </main>
+</div>
+
+<!-- 脚本：实现滚动高亮 -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 监听所有项目卡片
+    const projectCards = document.querySelectorAll('.project-card');
+    const navLinks = document.querySelectorAll('.sub-nav a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        // 1. 尝试匹配具体的项目卡片
+        projectCards.forEach(card => {
+            const cardTop = card.offsetTop;
+            // 减去 100px 是为了在元素刚进入视口偏上位置时就触发
+            if (pageYOffset >= (cardTop - 150)) {
+                current = card.getAttribute('id');
+            }
+        });
+
+        // 2. 高亮当前视口内的子菜单链接
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            // 检查链接的 href 是否匹配当前 ID
+            // href 可能是 "#proj-xxx"，我们需要比较整个字符串
+            if (link.getAttribute('href') === ('#' + current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+name: Ziming Xian
+university: 香港科技大学
+bio: >-
+  <div style="position: relative; z-index: 1; padding: 1rem; border-radius: 8px; overflow: hidden; margin-top: 1rem;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('assets/images/background_1.jpg') no-repeat center center / cover; opacity: 0.1; z-index: -1;"></div>
+    
+    <p style="margin-bottom:0.8rem; margin-top: 0;"><span style="display:inline-block; width: 1.25em; height: 1.25em; text-align: center; background-color: currentColor; -webkit-mask: url('assets/images/hkustLogo.png') no-repeat center / contain; mask: url('assets/images/hkustLogo.png') no-repeat center / contain; vertical-align: -0.25em; margin-right: 0.2rem;"></span>
+      香港科技大学电子与计算机工程专业 (CPEG), 2023-2027</p>
+    
+    <p style="margin-bottom: 0;">
+      <span style="display:inline-block; width: 1.25em; height: 1.25em; text-align: center; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; vertical-align: -0.25em; margin-right: 0.2rem;"></span>
+      3 年 <strong>RoboMaster</strong> 参赛经历 (香港科技大学 ENTERPRIZE 战队):</p>
+    <ul style="margin-top: 0.4rem; padding-left: 1.45em;">
+      <li style="margin-bottom: 0;">于 2025 赛季担任<strong>硬件组组长</strong>与<strong>项目管理</strong>职位</li>
+      <li style="margin-bottom: 0;">获得 2025 赛季 <a href="https://www.robomaster.com/zh-CN/resource/pages/announcement/1881" target="_blank" title="RoboMaster AWARD 2025 获奖人公示" style="color: inherit;"><strong>RM AWARD</strong></a> 奖项</li>
+      <li style="margin-bottom: 0;">获得 2025 赛季开源奖：<a href="https://www.robomaster.com/zh-CN/resource/pages/announcement/1880" target="_blank" title="RoboMaster 2025机甲大师高校系列赛综合类奖项获奖名单" style="color: inherit;"><strong>超级电容与无线充电系统（硬件方向）</strong></a>，另有多个项目已开源或将要开源</li> 
+    </ul>
+
+    <p style="margin-top: 0.5rem; margin-bottom: 0.2rem;"><i class="fas fa-microchip fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
+      熟练掌握 PCB 设计及相关调试流程，目前已经有 <strong>140+</strong> PCB 设计经历，使用的软件为 <strong>KiCAD</strong> </p>
+
+    <p style="margin-top: 0.2rem; margin-bottom: 0.2rem;"><i class="fas fa-code fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
+      <strong> STM32、C++ </strong> 嵌入式开发，对于底层外设有较多开发经验</p>
+
+    <p style="margin-top: 0.2rem; margin-bottom: 0;"><i class="fas fa-memory fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
+      <strong> FPGA、Verilog </strong> 开发</p>
+  </div>
+
+
+
+# -----------------------
+# 联系方式与链接
+# -----------------------
+
+# 邮箱列表 (支持多个)
+emails:
+  - xianziming0531@gmail.com
+  - zxianaa@connect.ust.hk
+
+# 社交链接与其他主页
+# 图标代码请参考: https://fontawesome.com/v5/search?m=free
+# 如果使用自定义图片，请填 image: "assets/images/icon.png" (不需要填 icon)
+social_links:
+  - name: Github
+    icon: fab fa-github
+    url: https://github.com/ZimingXian
+  
+  # 示例：自定义图片图标
+  - name: RoboMaster BBS
+    image: assets/images/rmLogo1.png
+    url: https://bbs.robomaster.com/user/262616
+
+  # 示例：添加 LinkedIn
+  # - name: LinkedIn
+  #   icon: fab fa-linkedin
+  #   url: https://linkedin.com/in/yourname
+
+  # 示例：添加博客或知乎
+  # - name: Blog
+  #   icon: fas fa-rss
+  #   url: https://your-blog.com
+
+# 简历下载链接 (如有)
+# resume: assets/files/my-resume.pdf

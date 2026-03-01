@@ -1,3 +1,38 @@
-theme: jekyll-theme-minimal
+# -----------------------
+# 站点基本设置
+# -----------------------
 title: xzm's homepage
-description: Bookmark this to keep an eye on my project updates!
+email: your-email@example.com
+description: >- # 用于搜索引擎和页面描述
+  这是 xzm 的个人主页，包含项目展示、简历和技术博客。
+baseurl: "" # 如果你的网站是在子目录下，例如 project-name，则填写 "/project-name"
+url: "https://zimingxian.github.io" # 你的 Github Pages 完整网址
+
+# -----------------------
+# 主题设置 (你可以随时更改这里)
+# -----------------------
+# GitHub Pages 官方支持的主题：
+theme: jekyll-theme-minimal   # (当前) 极简风格，适合阅读
+# theme: jekyll-theme-cayman    # 蓝色渐变头部，非常现代，适合项目展示
+# theme: jekyll-theme-slate     # 深色系，类终端风格，适合开发者
+# theme: jekyll-theme-architect # 建筑师风格，干净利落
+# theme: jekyll-theme-merlot    # 深红色调
+# theme: jekyll-theme-time-machine # 复古风格
+# theme: jekyll-theme-cayman
+
+# -----------------------
+# 插件设置
+# -----------------------
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag # 推荐开启，优化 SEO
+
+# -----------------------
+# 构建设置
+# -----------------------
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+
