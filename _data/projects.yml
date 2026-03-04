@@ -3,69 +3,151 @@
   items:
     - title: RoboMaster 超级电容控制器
       image: assets/images/c_supercap.png
-      desc: 基于 STM32G474 的双向升降压数控电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。<br>
-        本方案
+      desc: |
+        <p>基于 STM32G474 的双向升降压电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。</p>
+        <p>本方案采用双板设计，将功率部分和控制电路分离，兼顾可维护性、防干扰与空间利用率。</p>
       details: 
-        - 峰值电流模式内环 + 数控外环，电流环阶跃响应 20us
-        - 四开关双向 BuckBoost，250kHz 开关频率 
-        - 具备过流、过压、短路、通讯断联等保护，确保系统安全可靠运行
+        - 高位采样峰值电流模式控制 + 数控外环，电流环阶跃响应 20us
+        - 四开关双向 BuckBoost，250kHz 开关频率，持续电流 16A+
+        - 两侧半桥具备上管常开功能，升降压模式间平滑切换
+        - 体积 60x44x30mm，仅依靠被动散热可以连续、长时间运行不会过热
+        - 具备过流、过压、短路、通讯断联等完善的保护机制
+        - 在 5 台机器人上稳定运行一年以上，未出现故障
+      tags: [硬件开发, 嵌入式开发]
       links:
-        - name: RM 论坛文章链接
+        - name: 开源文章
           url: https://bbs.robomaster.com/article/761385
           image: assets/images/rmLogo1.png
-        - name: Github 链接
+        - name: 工程文件
           url: https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging
           icon: fab fa-github
+        - name: PCB 预览 (控制板)
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Control
+          icon: fas fa-microchip fa-fw
+        - name: PCB 预览 (功率板)
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Power
+          icon: fas fa-microchip fa-fw
+        - name: 开源报告
+          url: https://bbs-web-static.robomaster.com/f486ed3961fa4157872a1222dae52dce1754634953575/RM2025%E8%B6%85%E7%BA%A7%E7%94%B5%E5%AE%B9%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%85%85%E7%94%B5%E7%B3%BB%E7%BB%9F%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A.pdf
+          icon: fa fa-file-pdf
       
 
     - title: RoboMaster 无线充电系统
-      link: //link
       image: assets/images/c_wpt.png
-      desc: //
-      tags: [//]
+      tags: [硬件开发, 嵌入式开发(部分), 机械结构设计]
+      desc: |
+        <p>基于 STM32G474 的数控无线充电系统（发射端），可以为机器人以 120W、86% 效率进行无线充电，具有强鲁棒性和稳定的通讯、保护机制。</p>
+        <p>通过独特的发射端对位结构设计，使得机器人对位精准、坚固耐用、兼容性强。</p>
       details: 
-        - //
-        - //
+        - LCC-S 拓扑，整体充电效率 86%，最大功率 120W+
+        - 抗偏移能力强，80mm 线圈可承受 15mm 的水平或垂直偏移，同时效率与传输功率无明显衰减
+        - 类似 Qi 协议的稳定 ASK 反向通讯，实现接收端功率闭环
+        - 具备过流、超功率、通讯断联等完善的保护机制
+      links:
+        - name: 开源文章 (硬件/嵌入式)
+          url: https://bbs.robomaster.com/article/761385
+          image: assets/images/rmLogo1.png
+        - name: 开源文章 (机械结构/效果展示)
+          url: https://bbs.robomaster.com/article/760961
+          image: assets/images/rmLogo1.png
+        - name: 工程文件 (硬件/嵌入式)
+          url: https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging
+          icon: fab fa-github
+        - name: PCB 预览 (发射端)
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FWirelessCharger_V0.1
+          icon: fas fa-microchip fa-fw
+        - name: PCB 预览 (接收端)
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControlBoard_RXCoil_V0.1
+          icon: fas fa-microchip fa-fw
 
     - title: RoboMaster 超级电容组
-      link: //link
       image: assets/images/c_caparr.jpg
-      desc: //
-      tags: [//]
+      desc: |
+        <p> 适用于 RoboMaster 机器人的高能量密度超级电容组，通过尝试电容单体的不同选型与调整排布，将电容组缩小至机器人标准结构（装甲板支架）内，大大减小了对于机器人体积的占用。</p> 
+        <p> 此方案在 RoboMaster 社区获得了较高反响，目前已知有超过 20 支参赛队伍复刻。 </p> 
+      tags: [硬件开发, 机械结构设计]
       details: 
-        - //
-        - //
+        - 理论容量 1980J（3.0V34F+ 3.0V10F 10 串），峰值电流约 30A
+        - 机械尺寸（包括外壳）L78mm*W44mm*H66mm
+        - 具有柔性外壳防护，在恶劣工况下可以保护电容组，在 5 台机器人上稳定运行一年以上
+        - 被动均衡，单体保护电压 2.95V，实际使用中满电电压为29.2V
+      links:
+        - name: 开源文章
+          url: https://bbs.robomaster.com/article/760959?source=8
+          image: assets/images/rmLogo1.png
+        - name: 工程文件
+          url: https://github.com/hkustenterprize/RM2025-Super-Capacitor-Array
+          icon: fab fa-github
+        - name: PCB 预览
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Super-Capacitor-Array 
+          icon: fas fa-microchip fa-fw
 
-    - title: 通用机器人主控板 V2 (STM32G473)
-      link: //link
+    - title: 通用机器人主控板 V2
       image: assets/images/c_mcbv2.jpg
-      desc: //
-      tags: [//]
+      desc: |
+        <p> 第二代通用机器人主控板，使用核心板、扩展板双板设计，外设多、小尺寸、低成本、高可靠性 </p> 
+      tags: [硬件开发]
       details: 
-        - //
-        - //
-
-    - title: 集成激光雷达供电的小型四口交换机
-      link: //link
+        - 小尺寸 60x40mm，板间使用 80Pin板对板连接，扩展性强
+        - 为焊接/维护优化，电源系统有充分保护设计
+        - 可靠性强，在 8 台机器人上稳定使用一年以上
+      links:
+        - name: 开源文章
+          url: https://bbs.robomaster.com/article/760965
+          image: assets/images/rmLogo1.png
+        - name: 工程文件
+          url: https://github.com/hkustenterprize/RM2025-G4-MainControlBoard-V2/tree/main 
+          icon: fab fa-github
+        - name: PCB 预览 (核心板)
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB
+          icon: fas fa-microchip fa-fw
+        - name: PCB 预览 (扩展板)
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB_StdExtend
+          icon: fas fa-microchip fa-fw
+          
+        
+    - title: 小型四口交换机
       image: assets/images/c_switch.jpg
-      desc: //
-      tags: [//]
+      desc: 为 RoboMaster 哨兵机器人设计的小型交换机，可以一线直接连接两台电脑与两台 MID-360 激光雷达，集成激光雷达供电，极大简化接线。
+      tags: [硬件开发]
       details: 
-        - //
-        - //
+        - 体积小：60x45x10mm，接口布局在侧面，可安装在狭小空间中
+        - 双口千兆，双口百兆 + 激光雷达供电
+      links:
+        - name: 开源文章
+          url: https://bbs.robomaster.com/article/760947
+          image: assets/images/rmLogo1.png
+        - name: 工程文件
+          url: https://github.com/hkustenterprize/RM2025-Ethernet-Switch
+          icon: fab fa-github
+        - name: PCB 预览
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Ethernet-Switch 
+          icon: fas fa-microchip fa-fw
 
     - title: 大功率 48V 转 24V 降压模块
-      link: //link
-      image: assets/images/rmLogo1.png
-      desc: //
-      tags: [//]
+      image: assets/images/c_buck.jpg
+      desc: |
+        <p>大功率 48V 转 24V 降压模块，体积小，输出电流最大 20A，用于 RoboMaster 无人机的云台系统供电。</p>
+        <p>使用独立辅助供电，大幅降低高压输入下的空载功耗。FCCM 模式允许输出电流倒灌。</p>
+      tags: [硬件开发]
       details: 
-        - //
-        - //
+        - 体积 45x22x20mm
+        - 最大 20A 输出，FCCM 模式下空载功耗约 2W
+        - 7.5A 负载时效率约 96.5%
+      links:
+        - name: 开源文章
+          url: https://bbs.robomaster.com/article/760956
+          image: assets/images/rmLogo1.png
+        - name: 工程文件
+          url: https://github.com/hkustenterprize/RM2025-LM5145-48to24
+          icon: fab fa-github
+        - name: PCB 预览
+          url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-LM5145-48to24
+          icon: fas fa-microchip fa-fw
 
-    - title: 通用机器人主控板 V1 (STM32G473)
+    - title: 通用机器人主控板 V1
       link: //link
-      image: assets/images/c_mcbv1.jpg
+      image: assets/images/c_mcb.jpg
       desc: //
       tags: [//]
       details: 
@@ -88,13 +170,16 @@
         - //
 
     - title: SMT 贴片机
-      link: //link
       image: assets/images/c_smt.jpg
       desc: //
       tags: [//]
       details: 
         - //
         - //
+      links:
+        - name: Github 链接
+          url: https://github.com/baoqi-zhong/Awesome-SMT-Machine
+          icon: fab fa-github
 
 - id: dev
   title: 正在开发

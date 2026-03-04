@@ -106,12 +106,12 @@
                     
                     <li>
                         <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-通用机器人主控板-v2-stm32g473">通用机器人主控板 V2 (STM32G473)</a>
+                        <a href="#proj-通用机器人主控板-v2">通用机器人主控板 V2</a>
                     </li>
                     
                     <li>
                         <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-集成激光雷达供电的小型四口交换机">集成激光雷达供电的小型四口交换机</a>
+                        <a href="#proj-小型四口交换机">小型四口交换机</a>
                     </li>
                     
                     <li>
@@ -121,7 +121,7 @@
                     
                     <li>
                         <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-通用机器人主控板-v1-stm32g473">通用机器人主控板 V1 (STM32G473)</a>
+                        <a href="#proj-通用机器人主控板-v1">通用机器人主控板 V1</a>
                     </li>
                     
                 </ul>
@@ -193,6 +193,11 @@
 
   <p style="margin-top: 0.2rem; margin-bottom: 0;"><i class="fas fa-memory fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
     <strong> FPGA、Verilog </strong> 开发</p>
+  
+  <p style="margin-top: 0.2rem; margin-bottom: 0;"><i class="fas fa-gears fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
+    使用 <strong> SOLIDWORKS </strong> 进行机械设计，有 <strong>3D 打印、CNC 加工 </strong>等实际设计经验</p>
+  	
+
 </div></p>
         </section>
 
@@ -226,17 +231,25 @@
                             
                         </h3>
                         
-                        <p class="card-desc">基于 STM32G474 的双向升降压数控电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。<br> 本方案</p>
+                        <div class="card-desc"><p>基于 STM32G474 的双向升降压电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。</p>
+<p>本方案采用双板设计，将功率部分和控制电路分离，兼顾可维护性、防干扰与空间利用率。</p>
+</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
-                            <li>峰值电流模式内环 + 数控外环，电流环阶跃响应 20us</li>
+                            <li>高位采样峰值电流模式控制 + 数控外环，电流环阶跃响应 20us</li>
                             
-                            <li>四开关双向 BuckBoost，250kHz 开关频率</li>
+                            <li>四开关双向 BuckBoost，250kHz 开关频率，持续电流 16A+</li>
                             
-                            <li>具备过流、过压、短路、通讯断联等保护，确保系统安全可靠运行</li>
+                            <li>两侧半桥具备上管常开功能，升降压模式间平滑切换</li>
+                            
+                            <li>体积 60x44x30mm，仅依靠被动散热可以连续、长时间运行不会过热</li>
+                            
+                            <li>具备过流、过压、短路、通讯断联等完善的保护机制</li>
+                            
+                            <li>在 5 台机器人上稳定运行一年以上，未出现故障</li>
                             
                         </ul>
                         
@@ -246,6 +259,14 @@
 
                         <!-- 显示技术栈标签 -->
                         
+                        <div class="card-tags">
+                            
+                            <span class="tag">硬件开发</span>
+                            
+                            <span class="tag">嵌入式开发</span>
+                            
+                        </div>
+                        
 
                         <!-- 其他链接（类似于标签，带小图标） -->
                         
@@ -253,16 +274,37 @@
                             
                             <a href="https://bbs.robomaster.com/article/761385" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
                                 
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="RM 论坛文章链接"></span>
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
                                 
-                                <strong>RM 论坛文章链接</strong>
+                                <strong>开源文章</strong>
                             </a>
                             
                             <a href="https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
                                 
                                 <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
                                 
-                                <strong>Github 链接</strong>
+                                <strong>工程文件</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Control" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览 (控制板)</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Power" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览 (功率板)</strong>
+                            </a>
+                            
+                            <a href="https://bbs-web-static.robomaster.com/f486ed3961fa4157872a1222dae52dce1754634953575/RM2025%E8%B6%85%E7%BA%A7%E7%94%B5%E5%AE%B9%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%85%85%E7%94%B5%E7%B3%BB%E7%BB%9F%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A.pdf" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fa fa-file-pdf fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>开源报告</strong>
                             </a>
                             
                         </p>
@@ -286,19 +328,25 @@
                     <div class="card-content">
                         <h3 class="card-title">
                             
-                            <a href="//link" target="_blank">RoboMaster 无线充电系统</a>
+                            RoboMaster 无线充电系统
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc"><p>基于 STM32G474 的数控无线充电系统（发射端），可以为机器人以 120W、86% 效率进行无线充电，具有强鲁棒性和稳定的通讯、保护机制。</p>
+<p>通过独特的发射端对位结构设计，使得机器人对位精准、坚固耐用、兼容性强。</p>
+</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
-                            <li>//</li>
+                            <li>LCC-S 拓扑，整体充电效率 86%，最大功率 120W+</li>
                             
-                            <li>//</li>
+                            <li>抗偏移能力强，80mm 线圈可承受 15mm 的水平或垂直偏移，同时效率与传输功率无明显衰减</li>
+                            
+                            <li>类似 Qi 协议的稳定 ASK 反向通讯，实现接收端功率闭环</li>
+                            
+                            <li>具备过流、超功率、通讯断联等完善的保护机制</li>
                             
                         </ul>
                         
@@ -310,12 +358,55 @@
                         
                         <div class="card-tags">
                             
-                            <span class="tag">//</span>
+                            <span class="tag">硬件开发</span>
+                            
+                            <span class="tag">嵌入式开发(部分)</span>
+                            
+                            <span class="tag">机械结构设计</span>
                             
                         </div>
                         
 
                         <!-- 其他链接（类似于标签，带小图标） -->
+                        
+                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            
+                            <a href="https://bbs.robomaster.com/article/761385" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章 (硬件/嵌入式)"></span>
+                                
+                                <strong>开源文章 (硬件/嵌入式)</strong>
+                            </a>
+                            
+                            <a href="https://bbs.robomaster.com/article/760961" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章 (机械结构/效果展示)"></span>
+                                
+                                <strong>开源文章 (机械结构/效果展示)</strong>
+                            </a>
+                            
+                            <a href="https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>工程文件 (硬件/嵌入式)</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FWirelessCharger_V0.1" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览 (发射端)</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControlBoard_RXCoil_V0.1" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览 (接收端)</strong>
+                            </a>
+                            
+                        </p>
                         
                     </div>
                 </article>
@@ -336,19 +427,25 @@
                     <div class="card-content">
                         <h3 class="card-title">
                             
-                            <a href="//link" target="_blank">RoboMaster 超级电容组</a>
+                            RoboMaster 超级电容组
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc"><p> 适用于 RoboMaster 机器人的高能量密度超级电容组，通过尝试电容单体的不同选型与调整排布，将电容组缩小至机器人标准结构（装甲板支架）内，大大减小了对于机器人体积的占用。</p> 
+<p> 此方案在 RoboMaster 社区获得了较高反响，目前已知有超过 20 支参赛队伍复刻。 </p> 
+</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
-                            <li>//</li>
+                            <li>理论容量 1980J（3.0V34F+ 3.0V10F 10 串），峰值电流约 30A</li>
                             
-                            <li>//</li>
+                            <li>机械尺寸（包括外壳）L78mm*W44mm*H66mm</li>
+                            
+                            <li>具有柔性外壳防护，在恶劣工况下可以保护电容组，在 5 台机器人上稳定运行一年以上</li>
+                            
+                            <li>被动均衡，单体保护电压 2.95V，实际使用中满电电压为29.2V</li>
                             
                         </ul>
                         
@@ -360,12 +457,39 @@
                         
                         <div class="card-tags">
                             
-                            <span class="tag">//</span>
+                            <span class="tag">硬件开发</span>
+                            
+                            <span class="tag">机械结构设计</span>
                             
                         </div>
                         
 
                         <!-- 其他链接（类似于标签，带小图标） -->
+                        
+                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            
+                            <a href="https://bbs.robomaster.com/article/760959?source=8" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
+                                
+                                <strong>开源文章</strong>
+                            </a>
+                            
+                            <a href="https://github.com/hkustenterprize/RM2025-Super-Capacitor-Array" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>工程文件</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Super-Capacitor-Array" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览</strong>
+                            </a>
+                            
+                        </p>
                         
                     </div>
                 </article>
@@ -374,31 +498,34 @@
                    给每个项目卡片增加一个 ID 用于导航跳转
                    ID 生成规则必须和上面导航栏的一致 (proj- slugify)
                 -->
-                <article class="project-card" id="proj-通用机器人主控板-v2-stm32g473">
+                <article class="project-card" id="proj-通用机器人主控板-v2">
                     
                     <!-- 只有当 projects.yml 里填了 image 字段才显示图片区域 -->
                     
                     <div class="card-image">
-                        <img src="assets/images/c_mcbv2.jpg" alt="通用机器人主控板 V2 (STM32G473)">
+                        <img src="assets/images/c_mcbv2.jpg" alt="通用机器人主控板 V2">
                     </div>
                     
                     
                     <div class="card-content">
                         <h3 class="card-title">
                             
-                            <a href="//link" target="_blank">通用机器人主控板 V2 (STM32G473)</a>
+                            通用机器人主控板 V2
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc"><p> 第二代通用机器人主控板，使用核心板、扩展板双板设计，外设多、小尺寸、低成本、高可靠性 </p> 
+</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
-                            <li>//</li>
+                            <li>小尺寸 60x40mm，板间使用 80Pin板对板连接，扩展性强</li>
                             
-                            <li>//</li>
+                            <li>为焊接/维护优化，电源系统有充分保护设计</li>
+                            
+                            <li>可靠性强，在 8 台机器人上稳定使用一年以上</li>
                             
                         </ul>
                         
@@ -410,12 +537,44 @@
                         
                         <div class="card-tags">
                             
-                            <span class="tag">//</span>
+                            <span class="tag">硬件开发</span>
                             
                         </div>
                         
 
                         <!-- 其他链接（类似于标签，带小图标） -->
+                        
+                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            
+                            <a href="https://bbs.robomaster.com/article/760965" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
+                                
+                                <strong>开源文章</strong>
+                            </a>
+                            
+                            <a href="https://github.com/hkustenterprize/RM2025-G4-MainControlBoard-V2/tree/main" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>工程文件</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览 (核心板)</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB_StdExtend" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览 (扩展板)</strong>
+                            </a>
+                            
+                        </p>
                         
                     </div>
                 </article>
@@ -424,31 +583,31 @@
                    给每个项目卡片增加一个 ID 用于导航跳转
                    ID 生成规则必须和上面导航栏的一致 (proj- slugify)
                 -->
-                <article class="project-card" id="proj-集成激光雷达供电的小型四口交换机">
+                <article class="project-card" id="proj-小型四口交换机">
                     
                     <!-- 只有当 projects.yml 里填了 image 字段才显示图片区域 -->
                     
                     <div class="card-image">
-                        <img src="assets/images/c_switch.jpg" alt="集成激光雷达供电的小型四口交换机">
+                        <img src="assets/images/c_switch.jpg" alt="小型四口交换机">
                     </div>
                     
                     
                     <div class="card-content">
                         <h3 class="card-title">
                             
-                            <a href="//link" target="_blank">集成激光雷达供电的小型四口交换机</a>
+                            小型四口交换机
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc">为 RoboMaster 哨兵机器人设计的小型交换机，可以一线直接连接两台电脑与两台 MID-360 激光雷达，集成激光雷达供电，极大简化接线。</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
-                            <li>//</li>
+                            <li>体积小：60x45x10mm，接口布局在侧面，可安装在狭小空间中</li>
                             
-                            <li>//</li>
+                            <li>双口千兆，双口百兆 + 激光雷达供电</li>
                             
                         </ul>
                         
@@ -460,12 +619,37 @@
                         
                         <div class="card-tags">
                             
-                            <span class="tag">//</span>
+                            <span class="tag">硬件开发</span>
                             
                         </div>
                         
 
                         <!-- 其他链接（类似于标签，带小图标） -->
+                        
+                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            
+                            <a href="https://bbs.robomaster.com/article/760947" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
+                                
+                                <strong>开源文章</strong>
+                            </a>
+                            
+                            <a href="https://github.com/hkustenterprize/RM2025-Ethernet-Switch" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>工程文件</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Ethernet-Switch" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览</strong>
+                            </a>
+                            
+                        </p>
                         
                     </div>
                 </article>
@@ -479,26 +663,30 @@
                     <!-- 只有当 projects.yml 里填了 image 字段才显示图片区域 -->
                     
                     <div class="card-image">
-                        <img src="assets/images/rmLogo1.png" alt="大功率 48V 转 24V 降压模块">
+                        <img src="assets/images/c_buck.jpg" alt="大功率 48V 转 24V 降压模块">
                     </div>
                     
                     
                     <div class="card-content">
                         <h3 class="card-title">
                             
-                            <a href="//link" target="_blank">大功率 48V 转 24V 降压模块</a>
+                            大功率 48V 转 24V 降压模块
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc"><p>大功率 48V 转 24V 降压模块，体积小，输出电流最大 20A，用于 RoboMaster 无人机的云台系统供电。</p>
+<p>使用独立辅助供电，大幅降低高压输入下的空载功耗。FCCM 模式允许输出电流倒灌。</p>
+</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
-                            <li>//</li>
+                            <li>体积 45x22x20mm</li>
                             
-                            <li>//</li>
+                            <li>最大 20A 输出，FCCM 模式下空载功耗约 2W</li>
+                            
+                            <li>7.5A 负载时效率约 96.5%</li>
                             
                         </ul>
                         
@@ -510,12 +698,37 @@
                         
                         <div class="card-tags">
                             
-                            <span class="tag">//</span>
+                            <span class="tag">硬件开发</span>
                             
                         </div>
                         
 
                         <!-- 其他链接（类似于标签，带小图标） -->
+                        
+                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            
+                            <a href="https://bbs.robomaster.com/article/760956" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
+                                
+                                <strong>开源文章</strong>
+                            </a>
+                            
+                            <a href="https://github.com/hkustenterprize/RM2025-LM5145-48to24" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>工程文件</strong>
+                            </a>
+                            
+                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-LM5145-48to24" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>PCB 预览</strong>
+                            </a>
+                            
+                        </p>
                         
                     </div>
                 </article>
@@ -524,27 +737,27 @@
                    给每个项目卡片增加一个 ID 用于导航跳转
                    ID 生成规则必须和上面导航栏的一致 (proj- slugify)
                 -->
-                <article class="project-card" id="proj-通用机器人主控板-v1-stm32g473">
+                <article class="project-card" id="proj-通用机器人主控板-v1">
                     
                     <!-- 只有当 projects.yml 里填了 image 字段才显示图片区域 -->
                     
                     <div class="card-image">
-                        <img src="assets/images/c_mcbv1.jpg" alt="通用机器人主控板 V1 (STM32G473)">
+                        <img src="assets/images/c_mcb.jpg" alt="通用机器人主控板 V1">
                     </div>
                     
                     
                     <div class="card-content">
                         <h3 class="card-title">
                             
-                            <a href="//link" target="_blank">通用机器人主控板 V1 (STM32G473)</a>
+                            <a href="//link" target="_blank">通用机器人主控板 V1</a>
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc">//</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
                             <li>//</li>
                             
@@ -599,11 +812,11 @@
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc">//</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
                             <li>//</li>
                             
@@ -645,15 +858,15 @@
                     <div class="card-content">
                         <h3 class="card-title">
                             
-                            <a href="//link" target="_blank">SMT 贴片机</a>
+                            SMT 贴片机
                             
                         </h3>
                         
-                        <p class="card-desc">//</p>
+                        <div class="card-desc">//</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         
-                        <ul style="padding-left: 1.2rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
                             
                             <li>//</li>
                             
@@ -675,6 +888,17 @@
                         
 
                         <!-- 其他链接（类似于标签，带小图标） -->
+                        
+                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            
+                            <a href="https://github.com/baoqi-zhong/Awesome-SMT-Machine" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
+                                
+                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
+                                
+                                <strong>Github 链接</strong>
+                            </a>
+                            
+                        </p>
                         
                     </div>
                 </article>
@@ -704,7 +928,7 @@
                             
                         </h3>
                         
-                        <p class="card-desc">计划从 Notion 和 Obsidian 导入数据，构建私人 RAG 知识问答系统。</p>
+                        <div class="card-desc">计划从 Notion 和 Obsidian 导入数据，构建私人 RAG 知识问答系统。</div>
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         

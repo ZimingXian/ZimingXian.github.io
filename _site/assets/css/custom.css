@@ -261,9 +261,15 @@ body {
 
 .card-desc {
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
+  margin-bottom: 0.2rem;
+  line-height: 1.35;
   opacity: 0.9;
+}
+
+/* 调整使用 <p> 标签时的段落间距，使其介于 <br>（无间距）和默认 <p> 之间 */
+.card-desc p {
+  margin-top: 0;
+  margin-bottom: 0.0rem;
 }
 
 .card-tags {
