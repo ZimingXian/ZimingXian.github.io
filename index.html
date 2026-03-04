@@ -123,10 +123,33 @@ layout: null
                 -->
                 <article class="project-card" id="proj-{{ item.title | slugify }}">
                     
-                    <!-- 只有当 projects.yml 里填了 image 字段才显示图片区域 -->
-                    {% if item.image %}
-                    <div class="card-image">
-                        <img src="{{ item.image }}" alt="{{ item.title }}">
+                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
+                    {% assign image_count = 0 %}
+                    {% if item.images %}
+                        {% assign image_count = item.images | size %}
+                    {% elsif item.image %}
+                        {% assign image_count = 1 %}
+                    {% endif %}
+
+                    {% if image_count > 0 %}
+                    <div class="card-image{% if image_count > 1 %} has-gallery{% endif %}" data-image-count="{{ image_count }}">
+                        <div class="card-image-main">
+                            {% if item.images %}
+                                {% for image in item.images %}
+                                <img class="card-image-slide{% if forloop.first %} active{% endif %}" src="{{ image }}" alt="{{ item.title }}" data-slide-index="{{ forloop.index0 }}">
+                                {% endfor %}
+                            {% else %}
+                                <img class="card-image-slide active single-image" src="{{ item.image }}" alt="{{ item.title }}" data-slide-index="0">
+                            {% endif %}
+                        </div>
+
+                        {% if image_count > 1 %}
+                        <div class="card-image-dots" role="tablist" aria-label="{{ item.title }} 图片切换">
+                            {% for image in item.images %}
+                            <button class="card-image-dot{% if forloop.first %} active{% endif %}" type="button" data-slide-to="{{ forloop.index0 }}" aria-label="切换到第 {{ forloop.index }} 张图片"></button>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                     </div>
                     {% endif %}
                     
@@ -192,6 +215,11 @@ layout: null
     </main>
 </div>
 
+<div class="image-preview-modal" id="imagePreviewModal" aria-hidden="true">
+    <button class="image-preview-close" id="imagePreviewClose" type="button" aria-label="关闭预览">×</button>
+    <img id="imagePreviewModalImg" src="" alt="项目图片预览">
+</div>
+
 <!-- 脚本：实现滚动高亮 -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -220,6 +248,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+    });
+
+    const imageContainers = document.querySelectorAll('.card-image[data-image-count]');
+    const previewModal = document.getElementById('imagePreviewModal');
+    const previewModalImg = document.getElementById('imagePreviewModalImg');
+    const previewCloseBtn = document.getElementById('imagePreviewClose');
+
+    imageContainers.forEach(container => {
+        const imageCount = Number(container.dataset.imageCount || '0');
+        const slides = container.querySelectorAll('.card-image-slide');
+        const dots = container.querySelectorAll('.card-image-dot');
+
+        const showSlide = (targetIndex) => {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === targetIndex);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === targetIndex);
+            });
+        };
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetIndex = Number(dot.dataset.slideTo || '0');
+                showSlide(targetIndex);
+            });
+        });
+
+        slides.forEach(slide => {
+            slide.style.cursor = 'zoom-in';
+            slide.addEventListener('click', () => {
+                previewModalImg.src = slide.src;
+                previewModal.classList.add('open');
+                previewModal.setAttribute('aria-hidden', 'false');
+            });
+        });
+    });
+
+    const closePreview = () => {
+        previewModal.classList.remove('open');
+        previewModal.setAttribute('aria-hidden', 'true');
+        previewModalImg.src = '';
+    };
+
+    previewCloseBtn.addEventListener('click', closePreview);
+
+    previewModal.addEventListener('click', (event) => {
+        if (event.target === previewModal) {
+            closePreview();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && previewModal.classList.contains('open')) {
+            closePreview();
+        }
     });
 });
 </script>

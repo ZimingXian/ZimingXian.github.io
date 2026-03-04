@@ -2,7 +2,12 @@
   title: 已开源项目
   items:
     - title: RoboMaster 超级电容控制器
-      image: assets/images/c_supercap.png
+      images:
+        - assets/images/c_supercap_0.png
+        - assets/images/c_supercap_2.png
+        - assets/images/c_supercap_3.jpg
+        - assets/images/c_supercap_4.jpg
+        - assets/images/c_supercap_5.jpg
       desc: |
         <p>基于 STM32G474 的双向升降压电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。</p>
         <p>本方案采用双板设计，将功率部分和控制电路分离，兼顾可维护性、防干扰与空间利用率。</p>
@@ -36,7 +41,15 @@
         
 
     - title: RoboMaster 无线充电系统
-      image: assets/images/c_wpt.png
+      images: 
+        - assets/images/c_wpt_7.jpg
+        - assets/images/c_wpt_5.jpg
+        - assets/images/c_wpt_6.jpg
+        - assets/images/c_wpt_0.jpg
+        - assets/images/c_wpt_1.png
+        - assets/images/c_wpt_2.jpg
+        - assets/images/c_wpt_3.jpg
+        - assets/images/c_wpt_4.jpg
       tags: [硬件开发, 嵌入式开发(部分), 机械结构设计]
       desc: |
         <p>基于 STM32G474 的数控无线充电系统（发射端），可以为机器人以 120W、86% 效率进行无线充电，具有强鲁棒性和稳定的通讯、保护机制。</p>
@@ -64,7 +77,14 @@
           icon: fas fa-microchip fa-fw
 
     - title: RoboMaster 超级电容组
-      image: assets/images/c_caparr.jpg
+      images: 
+        - assets/images/c_caparr_0.jpg
+        - assets/images/c_caparr_1.jpg
+        - assets/images/c_caparr_4.jpg
+        - assets/images/c_caparr_3.png
+        - assets/images/c_caparr_2.jpg
+        
+
       desc: |
         <p> 适用于 RoboMaster 机器人的高能量密度超级电容组，通过尝试电容单体的不同选型与调整排布，将电容组缩小至机器人标准结构（装甲板支架）内，大大减小了对于机器人体积的占用。</p> 
         <p> 此方案在 RoboMaster 社区获得了较高反响，目前已知有超过 20 支参赛队伍复刻。 </p> 
@@ -86,7 +106,10 @@
           icon: fas fa-microchip fa-fw
 
     - title: 通用机器人主控板 V2
-      image: assets/images/c_mcbv2.jpg
+      images: 
+        - assets/images/c_mcbv2.jpg
+        - assets/images/c_mcbv2_1.jpg
+        - assets/images/c_mcbv2_2.jpg
       desc: |
         <p> 第二代通用机器人主控板，使用核心板、扩展板双板设计，外设多、小尺寸、低成本、高可靠性 </p> 
       tags: [硬件开发]
@@ -110,7 +133,9 @@
           
         
     - title: 小型四口交换机
-      image: assets/images/c_switch.jpg
+      images:
+        - assets/images/c_switch.jpg
+        - assets/images/c_switch_1.jpg
       desc: 为 RoboMaster 哨兵机器人设计的小型交换机，可以一线直接连接两台电脑与两台 MID-360 激光雷达，集成激光雷达供电，极大简化接线。
       tags: [硬件开发]
       details: 
@@ -128,7 +153,9 @@
           icon: fas fa-microchip fa-fw
 
     - title: 大功率 48V 转 24V 降压模块
-      image: assets/images/c_buck.jpg
+      images: 
+        - assets/images/c_buck.jpg
+        - assets/images/c_buck_1.jpg
       desc: |
         <p>大功率 48V 转 24V 降压模块，体积小，输出电流最大 20A，用于 RoboMaster 无人机的云台系统供电。</p>
         <p>使用独立辅助供电，大幅降低高压输入下的空载功耗。FCCM 模式允许输出电流倒灌。</p>
@@ -148,9 +175,11 @@
           url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-LM5145-48to24
           icon: fas fa-microchip fa-fw
 
-    - title: 通用机器人主控板 V1
-      link: //link
-      image: assets/images/c_mcb.jpg
+    - title: 工程机器人主控板
+      images: 
+        - assets/images/c_mcbeng_2.jpg
+        - assets/images/c_mcbeng_0.jpg
+        - assets/images/c_mcbeng_1.jpg
       desc: //
       tags: [//]
       details: 
@@ -164,7 +193,9 @@
   title: 课设项目
   items:
     - title: 基于 FPGA 的音频处理系统
-      image: assets/images/c_fpga.png
+      images: 
+        - assets/images/c_fpga.png
+        - assets/images/c_fpga_2.jpg
       desc: |
         <p>基于 BASYS3 开发板设计，实现了具有多种滤波功能的音频处理系统，并可以通过 VGA 输出界面进行交互式控制和状态显示。</p>
         <p>该项目通过自制的 PCB 扩展版提供音频采样适配电路，使用 ADC 采样，进行数据处理后通过 I2S 协议输出给功率放大器，再输出到扬声器。</p>
@@ -184,11 +215,12 @@
       image: assets/images/c_smt.jpg
       desc: |
         <p> 本项目为嵌入式课程的课设，与队友合作开发，共同实现了一套完整的 SMT 贴片机系统 </p>
-        <p>  </p>
+        <p> 本项目通过自制步进电机 FOC 驱动板、主控板与屏幕板，并通过 CAN 总线通讯，实现了稳定、精准的位置控制 </p>
       tags: [硬件开发, 嵌入式开发(部分), 机械结构设计(部分)]
       details: 
-        - //
-        - //
+        - 自研基于 STM32G431 的步进电机 FOC 驱动板
+        - 自研基于 STM32G431 的主控板，除于电机通讯的 CAN 外，还有通过 I2S 驱动的功放、LED 灯带驱动等外设功能
+        - 通过 SC8815 实现升降压充电与供电路径切换
       links:
         - name: Github 链接
           url: https://github.com/baoqi-zhong/Awesome-SMT-Machine
