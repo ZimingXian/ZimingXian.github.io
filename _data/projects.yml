@@ -8,6 +8,7 @@
         - assets/images/c_supercap_3.jpg
         - assets/images/c_supercap_4.jpg
         - assets/images/c_supercap_5.jpg
+        - assets/images/c_supercap_6.jpg
       desc: |
         <p>基于 STM32G474 的双向升降压电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。</p>
         <p>本方案采用双板设计，将功率部分和控制电路分离，兼顾可维护性、防干扰与空间利用率。</p>
@@ -155,7 +156,7 @@
     - title: 大功率 48V 转 24V 降压模块
       images: 
         - assets/images/c_buck.jpg
-        - assets/images/c_buck_1.jpg
+        - assets/images/c_buck_1.png
       desc: |
         <p>大功率 48V 转 24V 降压模块，体积小，输出电流最大 20A，用于 RoboMaster 无人机的云台系统供电。</p>
         <p>使用独立辅助供电，大幅降低高压输入下的空载功耗。FCCM 模式允许输出电流倒灌。</p>
@@ -175,16 +176,7 @@
           url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-LM5145-48to24
           icon: fas fa-microchip fa-fw
 
-    - title: 工程机器人主控板
-      images: 
-        - assets/images/c_mcbeng_2.jpg
-        - assets/images/c_mcbeng_0.jpg
-        - assets/images/c_mcbeng_1.jpg
-      desc: //
-      tags: [//]
-      details: 
-        - //
-        - //
+
 
 
 
@@ -226,9 +218,61 @@
           url: https://github.com/baoqi-zhong/Awesome-SMT-Machine
           icon: fab fa-github
 
-- id: dev
-  title: 正在开发
+- id: other
+  title: 其他项目
   items:
-    - title: 个人知识库助手
-      desc: 计划从 Notion 和 Obsidian 导入数据，构建私人 RAG 知识问答系统。
-      status: 进度 30%
+    - title: FOC 驱动板
+      images: 
+        - assets/images/c_foc_1.jpg
+      desc: |
+        <p> // </p>
+
+      tags: [//]
+      details: 
+        - //
+      links:
+        - name: //
+          url: 
+          icon: fab fa-github
+    
+    - title: 工程机器人主控板
+      images: 
+        - assets/images/c_mcbeng_2.jpg
+        - assets/images/c_mcbeng_0.jpg
+        - assets/images/c_mcbeng_1.jpg
+      desc: //
+      tags: [//]
+      details: 
+        - //
+        - //
+
+    - title: 基于主动预充电的 48V 缓启动模块 (预计 2026 年 6-8 月开源)
+      images: 
+        - assets/images/c_softstart_0.jpg
+      desc: |
+        <p> // </p>
+
+      tags: [//]
+      details: 
+        - //
+      links:
+        - name: //
+          url: 
+          icon: fab fa-github
+
+    - title: 超级电容系统方案探索
+      images: 
+        - assets/images/c_cap_0.jpg
+        - assets/images/c_cap_1.png
+        - assets/images/c_cap_2.jpg
+        - assets/images/c_cap_3.png
+      desc: |
+        <p> // </p>
+
+      tags: [//]
+      details: 
+        - //
+      links:
+        - name: //
+          url: 
+          icon: fab fa-github
