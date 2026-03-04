@@ -27,10 +27,13 @@
         - name: PCB 预览 (功率板)
           url: https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Power
           icon: fas fa-microchip fa-fw
-        - name: 开源报告
-          url: https://bbs-web-static.robomaster.com/f486ed3961fa4157872a1222dae52dce1754634953575/RM2025%E8%B6%85%E7%BA%A7%E7%94%B5%E5%AE%B9%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%85%85%E7%94%B5%E7%B3%BB%E7%BB%9F%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A.pdf
+        - name: 项目简介
+          url: assets/files/RM2025_SuperCap_WPT_PPT.pdf
           icon: fa fa-file-pdf
-      
+        - name: 完整开源报告
+          url: assets/files/RM2025_SuperCap_WPT_Report.pdf
+          icon: fa fa-file-pdf
+        
 
     - title: RoboMaster 无线充电系统
       image: assets/images/c_wpt.png
@@ -161,18 +164,28 @@
   title: 课设项目
   items:
     - title: 基于 FPGA 的音频处理系统
-      link: //link
       image: assets/images/c_fpga.png
-      desc: //
-      tags: [//]
+      desc: |
+        <p>基于 BASYS3 开发板设计，实现了具有多种滤波功能的音频处理系统，并可以通过 VGA 输出界面进行交互式控制和状态显示。</p>
+        <p>该项目通过自制的 PCB 扩展版提供音频采样适配电路，使用 ADC 采样，进行数据处理后通过 I2S 协议输出给功率放大器，再输出到扬声器。</p>
+      tags: [FPGA开发, 硬件开发]
       details: 
-        - //
-        - //
+        - 5 段均衡器，可独立控制增益，通过 5 个 FIR 滤波器实现频谱分割在乘上不同增益实现
+        - 高通/低通 IIR 滤波器，可动态调整截止频率，通过切换预先计算的系数组
+        - 通过 VGA 输出界面，包含频谱图、不同均衡器开关、增益控制、输入输出音量等信息
+        - 输出界面有半透明的背景图，并通过像素插值提升了图片的显示效果
+      links:
+        - name: Demo PPT
+          url: assets/files/ELEC4320_Project_Demo.pdf
+          icon: fa fa-file-pdf
+
 
     - title: SMT 贴片机
       image: assets/images/c_smt.jpg
-      desc: //
-      tags: [//]
+      desc: |
+        <p> 本项目为嵌入式课程的课设，与队友合作开发，共同实现了一套完整的 SMT 贴片机系统 </p>
+        <p>  </p>
+      tags: [硬件开发, 嵌入式开发(部分), 机械结构设计(部分)]
       details: 
         - //
         - //

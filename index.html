@@ -143,7 +143,7 @@ layout: null
 
                         <!-- 如果有 details 列表，显示为小点 -->
                         {% if item.details %}
-                        <ul style="padding-left: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.4;">
+                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
                             {% for detail in item.details %}
                             <li>{{ detail }}</li>
                             {% endfor %}
@@ -168,7 +168,7 @@ layout: null
 
                         <!-- 其他链接（类似于标签，带小图标） -->
                         {% if item.links %}
-                        <p style="margin-top: 0.8rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
                             {% for link in item.links %}
                             <a href="{{ link.url }}" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
                                 {% if link.image %}
