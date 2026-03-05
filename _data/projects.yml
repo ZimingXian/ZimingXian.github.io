@@ -9,6 +9,13 @@
         - assets/images/c_supercap_4.jpg
         - assets/images/c_supercap_5.jpg
         - assets/images/c_supercap_6.jpg
+        - assets/images/c_supercap_15.png
+        - assets/images/c_supercap_16.png
+        - assets/images/c_supercap_17.png
+        - assets/images/c_supercap_18.png
+        - assets/images/c_supercap_10.png
+        - assets/images/c_supercap_13.png
+        - assets/images/c_supercap_14.png
       desc: |
         <p>基于 STM32G474 的双向升降压电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。</p>
         <p>本方案采用双板设计，将功率部分和控制电路分离，兼顾可维护性、防干扰与空间利用率。</p>
