@@ -211,7 +211,10 @@
 
 
     - title: SMT 贴片机
-      image: assets/images/c_smt.jpg
+      images: 
+        - assets/images/c_smt.jpg
+        - assets/images/c_smt_1.jpg
+        - assets/images/c_smt_2.jpg
       desc: |
         <p> 本项目为嵌入式课程的课设，与队友合作开发，共同实现了一套完整的 SMT 贴片机系统 </p>
         <p> 本项目通过自制步进电机 FOC 驱动板、主控板与屏幕板，并通过 CAN 总线通讯，实现了稳定、精准的位置控制 </p>
@@ -228,44 +231,38 @@
 - id: other
   title: 其他项目
   items:
-    - title: FOC 驱动板
+    - title: 无刷电机 FOC 驱动板
       images: 
         - assets/images/c_foc_1.jpg
+        - assets/images/c_foc_2.jpg
       desc: |
-        <p> // </p>
+        <p> 基于 STSPING431 开发的 FOC，利用 MCU 集成的运放实现低位电流采样 </p>
+      tags: [硬件开发]
 
-      tags: [//]
-      details: 
-        - //
-      links:
-        - name: //
-          url: 
-          icon: fab fa-github
     
     - title: 工程机器人主控板
       images: 
         - assets/images/c_mcbeng_2.jpg
         - assets/images/c_mcbeng_0.jpg
         - assets/images/c_mcbeng_1.jpg
-      desc: //
-      tags: [//]
+      desc: |
+        <p> 基于 STM32G473 的工程机器人主控板，使用双板设计，集成了气泵驱动、气阀驱动、气压检测、大功率继电器等功能 </p>
+      tags: [硬件开发]
       details: 
-        - //
-        - //
+        - 使用 MCU 内部运放实现四路气压传感器的电压放大和检测
+        - 具有多路气压/气泵驱动
+        - 具有大功率继电器，可通过 MCU 控制大功率电源的通断
 
     - title: 基于主动预充电的 48V 缓启动模块 (预计 2026 年 6-8 月开源)
       images: 
         - assets/images/c_softstart_0.jpg
       desc: |
-        <p> // </p>
-
-      tags: [//]
+        <p> 使用主动预充电解决缓启动过程中负载存在电流导致缓启动失败的问题 </p>
+        <p> 通过利用恒流降压芯片 LM3409HV 的特性，为负载预先充电，启动后再通过主功率开关将预充电电路旁路 </p>
+      tags: [硬件开发]
       details: 
-        - //
-      links:
-        - name: //
-          url: 
-          icon: fab fa-github
+        - LM3409HV 的恒流降压预充电电路，峰值预先充电电流可达 10A，主功率 MOS 使用 LM5069 驱动
+        - 可实现 48V 下负载约 8mF 电容 + 4*无人机动力电机的稳定启动，启动冲击电流控制在15A以内
 
     - title: 超级电容系统方案探索
       images: 
@@ -274,12 +271,12 @@
         - assets/images/c_cap_2.jpg
         - assets/images/c_cap_3.png
       desc: |
-        <p> // </p>
-
-      tags: [//]
+        <p> 探索超级电容系统的更优解，保持四开关双向 BuckBoost 拓扑不变，探索方案如下： </p>
+      tags: [硬件开发, 嵌入式开发]
       details: 
-        - //
-      links:
-        - name: //
-          url: 
-          icon: fab fa-github
+        - 氮化镓功率级：降低驱动损耗与开关管内阻导致的损耗，通过提升开关频率以使用更小的电感，可以大大缩小模块体积
+        - 电感电流采样：通过使用更高带宽与共模抑制能力的电流感应放大器直接进行电感电流采样（采样电阻串联在电感上）
+        - 低位采样：通过低位采样实现更高频、更稳定的峰值电流控制
+        - 霍尔电流采样：通过高带宽霍尔电流传感器直接采样电感电流，以消除共模干扰的影响
+        - 主动均衡超级电容电容组：通过电感式主动均衡控制电容单体的电压，同时使用 MCU 监测每个电容单体的电压
+
