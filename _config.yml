@@ -35,4 +35,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
+  - serve-local.bat
+  - jekyll-server.out.log
+  - jekyll-server.err.log
+  - .sass-cache
 

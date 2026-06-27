@@ -4,310 +4,313 @@ layout: null
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 从 _data/profile.yml 读取名字 -->
-    <title>{{ site.data.profile.name }} | 主页</title>
-    
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.data.profile.name }} | 硬件作品集</title>
+  <link rel="stylesheet" href="assets/css/custom.css?v={{ site.time | date: '%s' }}">
 </head>
 <body>
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="个人信息与导航">
+      <div class="identity-block">
+        <h1>{{ site.data.profile.name }}</h1>
+      </div>
 
-<div class="container">
-    <!-- 左侧侧边栏导航 -->
-    <aside class="sidebar">
-        <!-- 
-            个人信息区域 
-            这里的数据全部来自 _data/profile.yml，修改那个文件即可更新信息
-        -->
-        <div class="intro-header">
-            <h2>{{ site.data.profile.name }}</h2>
-            <p class="text-muted">{{ site.data.profile.role }}</p>
-            
-            <div class="contact-info">
-                {% if site.data.profile.location %}
-                <div><i class="fas fa-map-marker-alt" style="width: 16px;"></i> {{ site.data.profile.location }}</div>
-                {% endif %}
-                
-                {% if site.data.profile.university %}
-                <div><i class="fas fa-university" style="width: 16px;"></i> {{ site.data.profile.university }}</div>
-                {% endif %}
-                
-                <!-- 循环显示邮箱 -->
-                {% if site.data.profile.emails %}
-                    {% for email in site.data.profile.emails %}
-                    <div>
-                        <i class="fas fa-envelope" style="width: 16px;"></i> 
-                        <a href="mailto:{{ email }}" style="color:inherit;">{{ email }}</a>
-                    </div>
-                    {% endfor %}
-                {% endif %}
-                
-                <!-- 循环显示社交链接 -->
-                {% if site.data.profile.social_links %}
-                    {% for link in site.data.profile.social_links %}
-                    <div>
-                        <!-- 支持自定义图片图标或 FontAwesome 图标 -->
-                        {% if link.image %}
-                            <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('{{ link.image }}') no-repeat center / contain; mask: url('{{ link.image }}') no-repeat center / contain; vertical-align: text-bottom; margin-right: 0.1rem;" alt="{{ link.name }}"></span>
-                        {% else %}
-                            <i class="{{ link.icon }}" style="width: 16px; text-align: center;"></i> 
-                        {% endif %}
-                        
-                        <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
-                    </div>
-                    {% endfor %}
-                {% endif %}
+      <ul class="contact-list" aria-label="个人信息和链接">
+        <li>
+          <span class="sidebar-icon icon-university" aria-hidden="true"></span>
+          <span>{{ site.data.profile.university_short | default: site.data.profile.university }}</span>
+        </li>
+        {% for email in site.data.profile.emails %}
+        <li>
+          <span class="sidebar-icon icon-mail" aria-hidden="true"></span>
+          <a href="mailto:{{ email }}">{{ email }}</a>
+        </li>
+        {% endfor %}
+        {% for link in site.data.profile.key_links %}
+        <li>
+          {% if link.icon == "github" %}
+          <span class="sidebar-icon icon-github" aria-hidden="true"></span>
+          {% elsif link.icon == "rm" %}
+          <span class="sidebar-icon icon-rm" aria-hidden="true"></span>
+          {% else %}
+          <span class="sidebar-icon icon-link" aria-hidden="true"></span>
+          {% endif %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
 
-                <!-- 简历下载 -->
-                {% if site.data.profile.resume %}
-                <div style="margin-top: 0.5rem;">
-                    <a href="{{ site.data.profile.resume }}" target="_blank" class="resume-btn">
-                        <i class="fas fa-file-download"></i> Download Resume
-                    </a>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-
-        <!-- 
-            导航菜单 
-            这里使用 Jekyll 模板循环 _data/projects.yml 中的内容自动生成菜单
-        -->
-        <ul class="nav-links">
-            <!-- 静态链接：个人信息 -->
-            <li><a href="#about" class="category-link"> 个人信息</a></li>
-            
-            <!-- 动态生成分类和子项目链接 -->
-            {% for category in site.data.projects %}
-            <li>
-                <!-- 一级分类标题 (点击跳转到对应 Section) -->
-                <a href="#{{ category.id }}" class="category-link">{{ category.title }}</a>
-                
-                <!-- 二级菜单：列出该分类下的所有项目 -->
-                <ul class="sub-nav">
-                    {% for item in category.items %}
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-{{ item.title | slugify }}">{{ item.title }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </li>
-            {% endfor %}
+      <section class="sidebar-section sidebar-copy">
+        <h2>个人技能</h2>
+        <p>{{ site.data.profile.summary }}</p>
+        <ul>
+          {% for item in site.data.profile.skills %}
+          <li>{{ item }}</li>
+          {% endfor %}
         </ul>
+      </section>
+
+      <section class="sidebar-section sidebar-copy">
+        <h2>参赛/获奖经历</h2>
+        <ul>
+          {% for item in site.data.profile.experience %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <nav class="sidebar-section page-nav" aria-label="页面导航">
+        <h2>目录</h2>
+        {% for category in site.data.projects %}
+        <a class="nav-link" href="#{{ category.id }}">{{ category.title }}</a>
+        {% for item in category.items %}
+        <a class="nav-link nav-sublink" href="#{{ item.id }}">{{ item.title }}</a>
+        {% endfor %}
+        {% endfor %}
+      </nav>
+
     </aside>
 
-    <!-- 右侧主要内容区 -->
-    <main>
-        <!-- 个人信息 -->
-        <section id="about" class="intro-section">
-            <h2 style="margin-top:0;">个人信息</h2>
-            <p>{{ site.data.profile.bio }}</p>
-        </section>
+    <main class="content">
+      <section class="direction-overview">
+        <div class="section-heading">
+          <h2>{{ site.data.profile.portfolio.title }}</h2>
+          <p>{{ site.data.profile.portfolio.description }}</p>
+        </div>
 
-        <!-- 
-            循环渲染项目列表 
-            数据来源: _data/projects.yml
-        -->
-        {% for category in site.data.projects %}
-        <section id="{{ category.id }}">
-            <h2 class="section-title">{{ category.title }}</h2>
-            <div class="project-grid">
-                
-                {% for item in category.items %}
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-{{ item.title | slugify }}">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    {% assign image_count = 0 %}
-                    {% if item.images %}
-                        {% assign image_count = item.images | size %}
-                    {% elsif item.image %}
-                        {% assign image_count = 1 %}
-                    {% endif %}
+        <div class="direction-grid" aria-label="作品集目录">
+          {% for category in site.data.projects %}
+          {% assign card = site.data.profile.portfolio.cards | where: "id", category.id | first %}
+          <a class="direction-card" href="#{{ category.id }}">
+            {% if category.cover %}
+            <span class="direction-cover">
+              <img src="{{ category.cover }}" alt="{{ category.title }}">
+            </span>
+            {% endif %}
+            <span class="direction-body">
+              <strong>{{ category.title }}</strong>
+              <span>{{ card.description | default: category.description }}</span>
+            </span>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
 
-                    {% if image_count > 0 %}
-                    <div class="card-image{% if image_count > 1 %} has-gallery{% endif %}" data-image-count="{{ image_count }}">
-                        <div class="card-image-main">
-                            {% if item.images %}
-                                {% for image in item.images %}
-                                <img class="card-image-slide{% if forloop.first %} active{% endif %}" src="{{ image }}" alt="{{ item.title }}" data-slide-index="{{ forloop.index0 }}">
-                                {% endfor %}
-                            {% else %}
-                                <img class="card-image-slide active single-image" src="{{ item.image }}" alt="{{ item.title }}" data-slide-index="0">
-                            {% endif %}
-                        </div>
+      {% for category in site.data.projects %}
+      <section class="category-section observed-section" id="{{ category.id }}">
+        <div class="section-heading">
+          <h2>{{ category.title }}</h2>
+          <p>{{ category.description }}</p>
+        </div>
 
-                        {% if image_count > 1 %}
-                        <div class="card-image-dots" role="tablist" aria-label="{{ item.title }} 图片切换">
-                            {% for image in item.images %}
-                            <button class="card-image-dot{% if forloop.first %} active{% endif %}" type="button" data-slide-to="{{ forloop.index0 }}" aria-label="切换到第 {{ forloop.index }} 张图片"></button>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                    {% endif %}
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            {% if item.link %}
-                            <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
-                            {% else %}
-                            {{ item.title }}
-                            {% endif %}
-                        </h3>
-                        
-                        <div class="card-desc">{{ item.desc }}</div>
+        <div class="project-list">
+          {% for item in category.items %}
+          <article class="project-card" id="{{ item.id }}">
+            {% assign image_count = 0 %}
+            {% if item.images %}
+              {% assign image_count = item.images | size %}
+            {% endif %}
 
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        {% if item.details %}
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            {% for detail in item.details %}
-                            <li>{{ detail }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                        
-                        <!-- 显示开发状态 -->
-                        {% if item.status %}
-                        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">
-                            <i class="fas fa-spinner"></i> {{ item.status }}
-                        </p>
-                        {% endif %}
-
-                        <!-- 显示技术栈标签 -->
-                        {% if item.tags %}
-                        <div class="card-tags">
-                            {% for tag in item.tags %}
-                            <span class="tag">{{ tag }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        {% if item.links %}
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            {% for link in item.links %}
-                            <a href="{{ link.url }}" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                {% if link.image %}
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('{{ link.image }}') no-repeat center / contain; mask: url('{{ link.image }}') no-repeat center / contain; margin-right: 0.3rem;" alt="{{ link.title | default: link.name }}"></span>
-                                {% else %}
-                                <i class="{{ link.icon | default: 'fas fa-link' }} fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                {% endif %}
-                                <strong>{{ link.title | default: link.name }}</strong>
-                            </a>
-                            {% endfor %}
-                        </p>
-                        {% endif %}
-                    </div>
-                </article>
+            {% if image_count > 0 %}
+            <div class="project-media{% if image_count > 1 %} has-gallery{% endif %}" data-image-count="{{ image_count }}">
+              <div class="media-stage">
+                {% for image in item.images %}
+                <img class="media-slide{% if forloop.first %} active{% endif %}" src="{{ image }}" alt="{{ item.title }} 图片 {{ forloop.index }}" data-slide-index="{{ forloop.index0 }}">
                 {% endfor %}
-
+              </div>
+              {% if image_count > 1 %}
+              <div class="media-controls" aria-label="{{ item.title }} 图片切换">
+                {% for image in item.images %}
+                <button class="media-dot{% if forloop.first %} active{% endif %}" type="button" data-slide-to="{{ forloop.index0 }}" aria-label="切换到第 {{ forloop.index }} 张图片"></button>
+                {% endfor %}
+              </div>
+              {% endif %}
             </div>
-        </section>
-        {% endfor %}
+            {% endif %}
 
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>{{ item.title }}</h3>
+                {% if item.status %}<span class="status-pill">{{ item.status }}</span>{% endif %}
+              </div>
+
+              <p class="project-summary">{{ item.summary }}</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  {% if item.metrics %}
+                  <ul class="compact-list">
+                    {% for metric in item.metrics %}
+                    {% if metric.title and metric.content %}
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">{{ metric.title }}</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>{{ metric.content }}</p>
+                      </details>
+                    </li>
+                    {% else %}
+                    <li><span class="list-text">{{ metric }}</span></li>
+                    {% endif %}
+                    {% endfor %}
+                  </ul>
+                  {% else %}
+                  <p class="empty-note">待补充</p>
+                  {% endif %}
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  {% assign item_notes = item.notes %}
+                  {% if item.highlights or item_notes %}
+                  <ul class="compact-list insight-list">
+                    {% for note in item_notes %}
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">{{ note.title }}</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>{{ note.content }}</p>
+                      </details>
+                    </li>
+                    {% endfor %}
+                    {% for detail in item.highlights %}
+                    {% if detail.title and detail.content %}
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">{{ detail.title }}</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>{{ detail.content }}</p>
+                      </details>
+                    </li>
+                    {% else %}
+                    <li><span class="list-text">{{ detail }}</span></li>
+                    {% endif %}
+                    {% endfor %}
+                  </ul>
+                  {% else %}
+                  <p class="empty-note">待补充</p>
+                  {% endif %}
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  {% if item.links %}
+                  <div class="link-row" aria-label="{{ item.title }} 相关链接">
+                    {% for link in item.links %}
+                    <a href="{{ link.url }}" target="_blank" rel="noopener">
+                      {% if link.name contains "GitHub" or link.name contains "工程文件" %}
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      {% elsif link.name contains "PCB" %}
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      {% elsif link.name contains "PDF" or link.name contains "报告" or link.name contains "简介" or link.name contains "PPT" %}
+                      <span class="link-icon icon-pdf" aria-hidden="true"></span>
+                      {% elsif link.name contains "文章" %}
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      {% else %}
+                      <span class="link-icon icon-link" aria-hidden="true"></span>
+                      {% endif %}
+                      {{ link.name }}
+                    </a>
+                    {% endfor %}
+                  </div>
+                  {% else %}
+                  <p class="empty-note">待补充</p>
+                  {% endif %}
+                </section>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+      {% endfor %}
     </main>
-</div>
+  </div>
 
-<div class="image-preview-modal" id="imagePreviewModal" aria-hidden="true">
-    <button class="image-preview-close" id="imagePreviewClose" type="button" aria-label="关闭预览">×</button>
-    <img id="imagePreviewModalImg" src="" alt="项目图片预览">
-</div>
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" type="button" aria-label="关闭图片预览">关闭</button>
+    <img id="modalImage" src="" alt="项目图片预览">
+  </div>
 
-<!-- 脚本：实现滚动高亮 -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // 监听所有项目卡片
-    const projectCards = document.querySelectorAll('.project-card');
-    const navLinks = document.querySelectorAll('.sub-nav a');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalClose = document.getElementById('modalClose');
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        // 1. 尝试匹配具体的项目卡片
-        projectCards.forEach(card => {
-            const cardTop = card.offsetTop;
-            // 减去 100px 是为了在元素刚进入视口偏上位置时就触发
-            if (pageYOffset >= (cardTop - 150)) {
-                current = card.getAttribute('id');
-            }
-        });
+      document.querySelectorAll('.project-media').forEach((media) => {
+        const slides = Array.from(media.querySelectorAll('.media-slide'));
+        const dots = Array.from(media.querySelectorAll('.media-dot'));
 
-        // 2. 高亮当前视口内的子菜单链接
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            // 检查链接的 href 是否匹配当前 ID
-            // href 可能是 "#proj-xxx"，我们需要比较整个字符串
-            if (link.getAttribute('href') === ('#' + current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    const imageContainers = document.querySelectorAll('.card-image[data-image-count]');
-    const previewModal = document.getElementById('imagePreviewModal');
-    const previewModalImg = document.getElementById('imagePreviewModalImg');
-    const previewCloseBtn = document.getElementById('imagePreviewClose');
-
-    imageContainers.forEach(container => {
-        const imageCount = Number(container.dataset.imageCount || '0');
-        const slides = container.querySelectorAll('.card-image-slide');
-        const dots = container.querySelectorAll('.card-image-dot');
-
-        const showSlide = (targetIndex) => {
-            slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === targetIndex);
-            });
-
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === targetIndex);
-            });
+        const showSlide = (index) => {
+          slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle('active', slideIndex === index);
+          });
+          dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('active', dotIndex === index);
+          });
         };
 
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const targetIndex = Number(dot.dataset.slideTo || '0');
-                showSlide(targetIndex);
-            });
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            showSlide(Number(dot.dataset.slideTo || 0));
+          });
         });
 
-        slides.forEach(slide => {
-            slide.style.cursor = 'zoom-in';
-            slide.addEventListener('click', () => {
-                previewModalImg.src = slide.src;
-                previewModal.classList.add('open');
-                previewModal.setAttribute('aria-hidden', 'false');
-            });
+        slides.forEach((slide) => {
+          slide.addEventListener('click', () => {
+            modalImage.src = slide.src;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+          });
         });
-    });
+      });
 
-    const closePreview = () => {
-        previewModal.classList.remove('open');
-        previewModal.setAttribute('aria-hidden', 'true');
-        previewModalImg.src = '';
-    };
+      const closeModal = () => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImage.src = '';
+      };
 
-    previewCloseBtn.addEventListener('click', closePreview);
-
-    previewModal.addEventListener('click', (event) => {
-        if (event.target === previewModal) {
-            closePreview();
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
         }
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && previewModal.classList.contains('open')) {
-            closePreview();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('open')) {
+          closeModal();
         }
-    });
-});
-</script>
+      });
 
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const sections = Array.from(document.querySelectorAll('.observed-section'));
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (!visible) return;
+
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id);
+          });
+        }, { rootMargin: '-20% 0px -65% 0px', threshold: [0.1, 0.25, 0.5] });
+
+        sections.forEach((section) => observer.observe(section));
+      }
+    });
+  </script>
 </body>
 </html>

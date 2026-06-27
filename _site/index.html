@@ -1,1558 +1,2202 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 从 _data/profile.yml 读取名字 -->
-    <title>Ziming Xian | 主页</title>
-    
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xian Ziming | 硬件作品集</title>
+  <link rel="stylesheet" href="assets/css/custom.css?v=1782603346">
 </head>
 <body>
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="个人信息与导航">
+      <div class="identity-block">
+        <h1>Xian Ziming</h1>
+      </div>
 
-<div class="container">
-    <!-- 左侧侧边栏导航 -->
-    <aside class="sidebar">
-        <!-- 
-            个人信息区域 
-            这里的数据全部来自 _data/profile.yml，修改那个文件即可更新信息
-        -->
-        <div class="intro-header">
-            <h2>Ziming Xian</h2>
-            <p class="text-muted"></p>
-            
-            <div class="contact-info">
-                
-                
-                
-                <div><i class="fas fa-university" style="width: 16px;"></i> 香港科技大学</div>
-                
-                
-                <!-- 循环显示邮箱 -->
-                
-                    
-                    <div>
-                        <i class="fas fa-envelope" style="width: 16px;"></i> 
-                        <a href="mailto:xianziming0531@gmail.com" style="color:inherit;">xianziming0531@gmail.com</a>
-                    </div>
-                    
-                    <div>
-                        <i class="fas fa-envelope" style="width: 16px;"></i> 
-                        <a href="mailto:zxianaa@connect.ust.hk" style="color:inherit;">zxianaa@connect.ust.hk</a>
-                    </div>
-                    
-                
-                
-                <!-- 循环显示社交链接 -->
-                
-                    
-                    <div>
-                        <!-- 支持自定义图片图标或 FontAwesome 图标 -->
-                        
-                            <i class="fab fa-github" style="width: 16px; text-align: center;"></i> 
-                        
-                        
-                        <a href="https://github.com/ZimingXian" target="_blank">Github</a>
-                    </div>
-                    
-                    <div>
-                        <!-- 支持自定义图片图标或 FontAwesome 图标 -->
-                        
-                            <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; vertical-align: text-bottom; margin-right: 0.1rem;" alt="RoboMaster BBS"></span>
-                        
-                        
-                        <a href="https://bbs.robomaster.com/user/262616" target="_blank">RoboMaster BBS</a>
-                    </div>
-                    
-                
+      <ul class="contact-list" aria-label="个人信息和链接">
+        <li>
+          <span class="sidebar-icon icon-university" aria-hidden="true"></span>
+          <span>香港科技大学</span>
+        </li>
+        
+        <li>
+          <span class="sidebar-icon icon-mail" aria-hidden="true"></span>
+          <a href="mailto:xianziming0531@gmail.com">xianziming0531@gmail.com</a>
+        </li>
+        
+        <li>
+          <span class="sidebar-icon icon-mail" aria-hidden="true"></span>
+          <a href="mailto:zxianaa@connect.ust.hk">zxianaa@connect.ust.hk</a>
+        </li>
+        
+        
+        <li>
+          
+          <span class="sidebar-icon icon-github" aria-hidden="true"></span>
+          
+          <a href="https://github.com/ZimingXian" target="_blank" rel="noopener">GitHub</a>
+        </li>
+        
+        <li>
+          
+          <span class="sidebar-icon icon-rm" aria-hidden="true"></span>
+          
+          <a href="https://bbs.robomaster.com/user/262616" target="_blank" rel="noopener">RoboMaster BBS</a>
+        </li>
+        
+      </ul>
 
-                <!-- 简历下载 -->
-                
-            </div>
-        </div>
-
-        <!-- 
-            导航菜单 
-            这里使用 Jekyll 模板循环 _data/projects.yml 中的内容自动生成菜单
-        -->
-        <ul class="nav-links">
-            <!-- 静态链接：个人信息 -->
-            <li><a href="#about" class="category-link"> 个人信息</a></li>
-            
-            <!-- 动态生成分类和子项目链接 -->
-            
-            <li>
-                <!-- 一级分类标题 (点击跳转到对应 Section) -->
-                <a href="#openSourceProjects" class="category-link">已开源项目</a>
-                
-                <!-- 二级菜单：列出该分类下的所有项目 -->
-                <ul class="sub-nav">
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-robomaster-超级电容控制器">RoboMaster 超级电容控制器</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-robomaster-无线充电系统">RoboMaster 无线充电系统</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-robomaster-超级电容组">RoboMaster 超级电容组</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-通用机器人主控板-v2">通用机器人主控板 V2</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-小型四口交换机">小型四口交换机</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-大功率-48v-转-24v-降压模块">大功率 48V 转 24V 降压模块</a>
-                    </li>
-                    
-                </ul>
-            </li>
-            
-            <li>
-                <!-- 一级分类标题 (点击跳转到对应 Section) -->
-                <a href="#courseProjects" class="category-link">课设项目</a>
-                
-                <!-- 二级菜单：列出该分类下的所有项目 -->
-                <ul class="sub-nav">
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-基于-fpga-的音频处理系统">基于 FPGA 的音频处理系统</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-smt-贴片机">SMT 贴片机</a>
-                    </li>
-                    
-                </ul>
-            </li>
-            
-            <li>
-                <!-- 一级分类标题 (点击跳转到对应 Section) -->
-                <a href="#other" class="category-link">其他项目</a>
-                
-                <!-- 二级菜单：列出该分类下的所有项目 -->
-                <ul class="sub-nav">
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-foc-驱动板">FOC 驱动板</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-工程机器人主控板">工程机器人主控板</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-基于主动预充电的-48v-缓启动模块-预计-2026-年-6-8-月开源">基于主动预充电的 48V 缓启动模块 (预计 2026 年 6-8 月开源)</a>
-                    </li>
-                    
-                    <li>
-                        <!-- 使用 slugify 过滤器将标题转换为合法的 ID (例如 "My Project" -> "my-project") -->
-                        <a href="#proj-超级电容系统方案探索">超级电容系统方案探索</a>
-                    </li>
-                    
-                </ul>
-            </li>
-            
+      <section class="sidebar-section sidebar-copy">
+        <h2>个人技能</h2>
+        <p></p>
+        <ul>
+          
+          <li>硬件：使用 KiCad 完成 160+ PCB 设计</li>
+          
+          <li>嵌入式：熟悉 STM32 / C++ 开发（偏裸机/底层）</li>
+          
+          <li>结构：使用 SOLIDWORKS 完成 3D 设计与建模，熟悉 3D 打印和 CNC 等加工方式</li>
+          
+          <li>其他：FPGA / Verilog 开发</li>
+          
         </ul>
+      </section>
+
+      <section class="sidebar-section sidebar-copy">
+        <h2>参赛/获奖经历</h2>
+        <ul>
+          
+          <li>3 年 RoboMaster 参赛经历，2025 赛季担任硬件组组长与项目管理</li>
+          
+          <li>RM AWARD 2025</li>
+          
+          <li>RoboMaster 2025 赛季开源奖三等奖</li>
+          
+        </ul>
+      </section>
+
+      <nav class="sidebar-section page-nav" aria-label="页面导航">
+        <h2>目录</h2>
+        
+        <a class="nav-link" href="#supercap-system">超级电容系统</a>
+        
+        <a class="nav-link nav-sublink" href="#supercap-controller">底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖）</a>
+        
+        <a class="nav-link nav-sublink" href="#supercap-array">高能量密度超级电容组</a>
+        
+        <a class="nav-link nav-sublink" href="#buffer-capacitor-system-bypass">关节电机缓冲电容（旁路方案）</a>
+        
+        <a class="nav-link nav-sublink" href="#buffer-capacitor-system-boost">关节电机缓冲电容（升压并联方案）</a>
+        
+        <a class="nav-link nav-sublink" href="#supercap-exploration">超级电容系统方案探索</a>
+        
+        <a class="nav-link nav-sublink" href="#supercap-optimized-controllers">超级电容控制器优化方案</a>
+        
+        
+        <a class="nav-link" href="#power-modules">功率模块</a>
+        
+        <a class="nav-link nav-sublink" href="#wireless-charging">RoboMaster 无线充电系统</a>
+        
+        <a class="nav-link nav-sublink" href="#buck-48v-24v">大功率 48V 转 24V 降压模块</a>
+        
+        <a class="nav-link nav-sublink" href="#active-precharge">基于主动预充电的 48V 缓启动模块</a>
+        
+        
+        <a class="nav-link" href="#general-modules">通用模块</a>
+        
+        <a class="nav-link nav-sublink" href="#main-control-board-v2">通用机器人主控板 V2</a>
+        
+        <a class="nav-link nav-sublink" href="#ethernet-switch">小型四口交换机</a>
+        
+        <a class="nav-link nav-sublink" href="#engineer-main-control-board">工程机器人主控板</a>
+        
+        
+        <a class="nav-link" href="#actuators-drives">执行器</a>
+        
+        <a class="nav-link nav-sublink" href="#high-power-foc">大功率 FOC 驱动器</a>
+        
+        <a class="nav-link nav-sublink" href="#bldc-foc-board">无刷电机 FOC 驱动板</a>
+        
+        <a class="nav-link nav-sublink" href="#smt-machine">SMT 贴片机</a>
+        
+        
+        <a class="nav-link" href="#other-capabilities">其他/开发中</a>
+        
+        <a class="nav-link nav-sublink" href="#fpga-audio">基于 FPGA 的音频处理系统</a>
+        
+        
+      </nav>
+
     </aside>
 
-    <!-- 右侧主要内容区 -->
-    <main>
-        <!-- 个人信息 -->
-        <section id="about" class="intro-section">
-            <h2 style="margin-top:0;">个人信息</h2>
-            <p><div style="position: relative; z-index: 1; padding: 1rem; border-radius: 8px; overflow: hidden; margin-top: 1rem;">
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('assets/images/background_1.jpg') no-repeat center center / cover; opacity: 0.1; z-index: -1;"></div>
-  
-  <p style="margin-bottom:0.8rem; margin-top: 0;"><span style="display:inline-block; width: 1.25em; height: 1.25em; text-align: center; background-color: currentColor; -webkit-mask: url('assets/images/hkustLogo.png') no-repeat center / contain; mask: url('assets/images/hkustLogo.png') no-repeat center / contain; vertical-align: -0.25em; margin-right: 0.2rem;"></span>
-    香港科技大学电子与计算机工程专业 (CPEG), 2023-2027</p>
-  
-  <p style="margin-bottom: 0;">
-    <span style="display:inline-block; width: 1.25em; height: 1.25em; text-align: center; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; vertical-align: -0.25em; margin-right: 0.2rem;"></span>
-    3 年 <strong>RoboMaster</strong> 参赛经历 (香港科技大学 ENTERPRIZE 战队):</p>
-  <ul style="margin-top: 0.4rem; padding-left: 1.45em;">
-    <li style="margin-bottom: 0;">于 2025 赛季担任<strong>硬件组组长</strong>与<strong>项目管理</strong>职位</li>
-    <li style="margin-bottom: 0;">获得 2025 赛季 <a href="https://www.robomaster.com/zh-CN/resource/pages/announcement/1881" target="_blank" title="RoboMaster AWARD 2025 获奖人公示" style="color: inherit;"><strong>RM AWARD</strong></a> 奖项</li>
-    <li style="margin-bottom: 0;">获得 2025 赛季开源奖：<a href="https://www.robomaster.com/zh-CN/resource/pages/announcement/1880" target="_blank" title="RoboMaster 2025机甲大师高校系列赛综合类奖项获奖名单" style="color: inherit;"><strong>超级电容与无线充电系统（硬件方向）</strong></a>，另有多个项目已开源或将要开源</li> 
-  </ul>
+    <main class="content">
+      <section class="direction-overview">
+        <div class="section-heading">
+          <h2>作品集概览</h2>
+          <p>按机器人整机硬件链路组织项目：从能量缓存、功率变换、主控通信到执行器驱动，体现对整机架构、接口边界、功率路径和实机可靠性的完整理解。</p>
+        </div>
 
-  <p style="margin-top: 0.5rem; margin-bottom: 0.2rem;"><i class="fas fa-microchip fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
-    熟练掌握 PCB 设计及相关调试流程，目前已经有 <strong>140+</strong> PCB 设计经历，使用的软件为 <strong>KiCAD</strong> </p>
+        <div class="direction-grid" aria-label="作品集目录">
+          
+          
+          <a class="direction-card" href="#supercap-system">
+            
+            <span class="direction-cover">
+              <img src="assets/projects/supercap-controller/c_supercap_0.png" alt="超级电容系统">
+            </span>
+            
+            <span class="direction-body">
+              <strong>超级电容系统</strong>
+              <span>与超级电容相关的功率系统，包含硬件架构与控制算法设计。</span>
+            </span>
+          </a>
+          
+          
+          <a class="direction-card" href="#power-modules">
+            
+            <span class="direction-cover">
+              <img src="assets/projects/wireless-charging/c_wpt_7.jpg" alt="功率模块">
+            </span>
+            
+            <span class="direction-body">
+              <strong>功率模块</strong>
+              <span>机器人中的功率模块，包含电压转换、大功率无线充电、缓启动/继电器模块。</span>
+            </span>
+          </a>
+          
+          
+          <a class="direction-card" href="#general-modules">
+            
+            <span class="direction-cover">
+              <img src="assets/projects/main-control-board-v2/c_mcbv2.jpg" alt="通用模块">
+            </span>
+            
+            <span class="direction-body">
+              <strong>通用模块</strong>
+              <span>机器人中的通用模块，包含主控板、交换机。</span>
+            </span>
+          </a>
+          
+          
+          <a class="direction-card" href="#actuators-drives">
+            
+            <span class="direction-cover">
+              <img src="assets/projects/bldc-foc-board/c_foc_1.jpg" alt="执行器">
+            </span>
+            
+            <span class="direction-body">
+              <strong>执行器</strong>
+              <span>机器人中的执行器，包含 FOC 电机驱动、高精度激光振镜驱动器。</span>
+            </span>
+          </a>
+          
+          
+          <a class="direction-card" href="#other-capabilities">
+            
+            <span class="direction-cover">
+              <img src="assets/projects/fpga-audio/c_fpga.png" alt="其他/开发中">
+            </span>
+            
+            <span class="direction-body">
+              <strong>其他/开发中</strong>
+              <span>FPGA、课程设计项目、开发中项目。</span>
+            </span>
+          </a>
+          
+        </div>
+      </section>
 
-  <p style="margin-top: 0.2rem; margin-bottom: 0.2rem;"><i class="fas fa-code fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
-    <strong> STM32、C++ </strong> 嵌入式开发，对于底层外设有较多开发经验</p>
+      
+      <section class="category-section observed-section" id="supercap-system">
+        <div class="section-heading">
+          <h2>超级电容系统</h2>
+          <p>以<b>双向四开关 DCDC </b>为核心电路、利用超级电容高功率密度的特性为机器人底盘电机、关节电机提供缓冲，提高系统瞬时功率上限。采用峰值模拟电流内环 + 数字外环实现较快的响应速度；以可靠性作为核心设计指标，完善的保护机制经过长期使用验证；基于不同应用场景进行优化设计，以达到最大效能。</p>
+        </div>
 
-  <p style="margin-top: 0.2rem; margin-bottom: 0;"><i class="fas fa-memory fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
-    <strong> FPGA、Verilog </strong> 开发</p>
-  
-  <p style="margin-top: 0.2rem; margin-bottom: 0;"><i class="fas fa-gears fa-fw" style="margin-right: 0.2rem; text-align: center;"></i>
-    使用 <strong> SOLIDWORKS </strong> 进行机械设计，有 <strong>3D 打印、CNC 加工 </strong>等实际设计经验</p>
-  	
+        <div class="project-list">
+          
+          <article class="project-card" id="supercap-controller">
+            
+            
 
-</div></p>
-        </section>
-
-        <!-- 
-            循环渲染项目列表 
-            数据来源: _data/projects.yml
-        -->
-        
-        <section id="openSourceProjects">
-            <h2 class="section-title">已开源项目</h2>
-            <div class="project-grid">
+            
+            <div class="project-media has-gallery" data-image-count="12">
+              <div class="media-stage">
                 
+                <img class="media-slide active" src="assets/projects/supercap-controller/cover.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 1" data-slide-index="0">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-robomaster-超级电容控制器">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="13">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_supercap_0.png" alt="RoboMaster 超级电容控制器" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_2.png" alt="RoboMaster 超级电容控制器" data-slide-index="1">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_3.jpg" alt="RoboMaster 超级电容控制器" data-slide-index="2">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_4.jpg" alt="RoboMaster 超级电容控制器" data-slide-index="3">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_5.jpg" alt="RoboMaster 超级电容控制器" data-slide-index="4">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_6.jpg" alt="RoboMaster 超级电容控制器" data-slide-index="5">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_15.png" alt="RoboMaster 超级电容控制器" data-slide-index="6">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_16.png" alt="RoboMaster 超级电容控制器" data-slide-index="7">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_17.png" alt="RoboMaster 超级电容控制器" data-slide-index="8">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_18.png" alt="RoboMaster 超级电容控制器" data-slide-index="9">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_10.png" alt="RoboMaster 超级电容控制器" data-slide-index="10">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_13.png" alt="RoboMaster 超级电容控制器" data-slide-index="11">
-                                
-                                <img class="card-image-slide" src="assets/images/c_supercap_14.png" alt="RoboMaster 超级电容控制器" data-slide-index="12">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="RoboMaster 超级电容控制器 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="4" aria-label="切换到第 5 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="5" aria-label="切换到第 6 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="6" aria-label="切换到第 7 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="7" aria-label="切换到第 8 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="8" aria-label="切换到第 9 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="9" aria-label="切换到第 10 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="10" aria-label="切换到第 11 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="11" aria-label="切换到第 12 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="12" aria-label="切换到第 13 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            RoboMaster 超级电容控制器
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p>基于 STM32G474 的双向升降压电源，为 RoboMaster 机器人的超级电容系统设计。配合超级电容组，可实现机器人底盘低功耗时储能，高功耗时提供 400W+ 额外功率。</p>
-<p>本方案采用双板设计，将功率部分和控制电路分离，兼顾可维护性、防干扰与空间利用率。</p>
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>高位采样峰值电流模式控制 + 数控外环，电流环阶跃响应 20us</li>
-                            
-                            <li>四开关双向 BuckBoost，250kHz 开关频率，持续电流 16A+</li>
-                            
-                            <li>两侧半桥具备上管常开功能，升降压模式间平滑切换</li>
-                            
-                            <li>体积 60x44x30mm，仅依靠被动散热可以连续、长时间运行不会过热</li>
-                            
-                            <li>具备过流、过压、短路、通讯断联等完善的保护机制</li>
-                            
-                            <li>在 5 台机器人上稳定运行一年以上，未出现故障</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                            <span class="tag">嵌入式开发</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="https://bbs.robomaster.com/article/761385" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
-                                
-                                <strong>开源文章</strong>
-                            </a>
-                            
-                            <a href="https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>工程文件</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Control" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览 (控制板)</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Power" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览 (功率板)</strong>
-                            </a>
-                            
-                            <a href="assets/files/RM2025_SuperCap_WPT_PPT.pdf" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fa fa-file-pdf fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>项目简介</strong>
-                            </a>
-                            
-                            <a href="assets/files/RM2025_SuperCap_WPT_Report.pdf" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fa fa-file-pdf fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>完整开源报告</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-controller/top.jpg" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 2" data-slide-index="1">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-robomaster-无线充电系统">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="8">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_wpt_7.jpg" alt="RoboMaster 无线充电系统" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_wpt_5.jpg" alt="RoboMaster 无线充电系统" data-slide-index="1">
-                                
-                                <img class="card-image-slide" src="assets/images/c_wpt_6.jpg" alt="RoboMaster 无线充电系统" data-slide-index="2">
-                                
-                                <img class="card-image-slide" src="assets/images/c_wpt_0.jpg" alt="RoboMaster 无线充电系统" data-slide-index="3">
-                                
-                                <img class="card-image-slide" src="assets/images/c_wpt_1.png" alt="RoboMaster 无线充电系统" data-slide-index="4">
-                                
-                                <img class="card-image-slide" src="assets/images/c_wpt_2.jpg" alt="RoboMaster 无线充电系统" data-slide-index="5">
-                                
-                                <img class="card-image-slide" src="assets/images/c_wpt_3.jpg" alt="RoboMaster 无线充电系统" data-slide-index="6">
-                                
-                                <img class="card-image-slide" src="assets/images/c_wpt_4.jpg" alt="RoboMaster 无线充电系统" data-slide-index="7">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="RoboMaster 无线充电系统 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="4" aria-label="切换到第 5 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="5" aria-label="切换到第 6 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="6" aria-label="切换到第 7 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="7" aria-label="切换到第 8 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            RoboMaster 无线充电系统
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p>基于 STM32G474 的数控无线充电系统（发射端），可以为机器人以 120W、86% 效率进行无线充电，具有强鲁棒性和稳定的通讯、保护机制。</p>
-<p>通过独特的发射端对位结构设计，使得机器人对位精准、坚固耐用、兼容性强。</p>
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>LCC-S 拓扑，整体充电效率 86%，最大功率 120W+</li>
-                            
-                            <li>抗偏移能力强，80mm 线圈可承受 15mm 的水平或垂直偏移，同时效率与传输功率无明显衰减</li>
-                            
-                            <li>类似 Qi 协议的稳定 ASK 反向通讯，实现接收端功率闭环</li>
-                            
-                            <li>具备过流、超功率、通讯断联等完善的保护机制</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                            <span class="tag">嵌入式开发(部分)</span>
-                            
-                            <span class="tag">机械结构设计</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="https://bbs.robomaster.com/article/761385" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章 (硬件/嵌入式)"></span>
-                                
-                                <strong>开源文章 (硬件/嵌入式)</strong>
-                            </a>
-                            
-                            <a href="https://bbs.robomaster.com/article/760961" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章 (机械结构/效果展示)"></span>
-                                
-                                <strong>开源文章 (机械结构/效果展示)</strong>
-                            </a>
-                            
-                            <a href="https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>工程文件 (硬件/嵌入式)</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FWirelessCharger_V0.1" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览 (发射端)</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControlBoard_RXCoil_V0.1" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览 (接收端)</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-controller/bottom.jpg" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 3" data-slide-index="2">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-robomaster-超级电容组">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="5">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_caparr_0.jpg" alt="RoboMaster 超级电容组" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_caparr_1.jpg" alt="RoboMaster 超级电容组" data-slide-index="1">
-                                
-                                <img class="card-image-slide" src="assets/images/c_caparr_4.jpg" alt="RoboMaster 超级电容组" data-slide-index="2">
-                                
-                                <img class="card-image-slide" src="assets/images/c_caparr_3.png" alt="RoboMaster 超级电容组" data-slide-index="3">
-                                
-                                <img class="card-image-slide" src="assets/images/c_caparr_2.jpg" alt="RoboMaster 超级电容组" data-slide-index="4">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="RoboMaster 超级电容组 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="4" aria-label="切换到第 5 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            RoboMaster 超级电容组
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p> 适用于 RoboMaster 机器人的高能量密度超级电容组，通过尝试电容单体的不同选型与调整排布，将电容组缩小至机器人标准结构（装甲板支架）内，大大减小了对于机器人体积的占用。</p> 
-<p> 此方案在 RoboMaster 社区获得了较高反响，目前已知有超过 20 支参赛队伍复刻。 </p> 
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>理论容量 1980J（3.0V34F+ 3.0V10F 10 串），峰值电流约 30A</li>
-                            
-                            <li>机械尺寸（包括外壳）L78mm*W44mm*H66mm</li>
-                            
-                            <li>具有柔性外壳防护，在恶劣工况下可以保护电容组，在 5 台机器人上稳定运行一年以上</li>
-                            
-                            <li>被动均衡，单体保护电压 2.95V，实际使用中满电电压为29.2V</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                            <span class="tag">机械结构设计</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="https://bbs.robomaster.com/article/760959?source=8" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
-                                
-                                <strong>开源文章</strong>
-                            </a>
-                            
-                            <a href="https://github.com/hkustenterprize/RM2025-Super-Capacitor-Array" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>工程文件</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Super-Capacitor-Array" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-controller/efficiency.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 4" data-slide-index="3">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-通用机器人主控板-v2">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="3">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_mcbv2.jpg" alt="通用机器人主控板 V2" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_mcbv2_1.jpg" alt="通用机器人主控板 V2" data-slide-index="1">
-                                
-                                <img class="card-image-slide" src="assets/images/c_mcbv2_2.jpg" alt="通用机器人主控板 V2" data-slide-index="2">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="通用机器人主控板 V2 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            通用机器人主控板 V2
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p> 第二代通用机器人主控板，使用核心板、扩展板双板设计，外设多、小尺寸、低成本、高可靠性 </p> 
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>小尺寸 60x40mm，板间使用 80Pin板对板连接，扩展性强</li>
-                            
-                            <li>为焊接/维护优化，电源系统有充分保护设计</li>
-                            
-                            <li>可靠性强，在 8 台机器人上稳定使用一年以上</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="https://bbs.robomaster.com/article/760965" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
-                                
-                                <strong>开源文章</strong>
-                            </a>
-                            
-                            <a href="https://github.com/hkustenterprize/RM2025-G4-MainControlBoard-V2/tree/main" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>工程文件</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览 (核心板)</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB_StdExtend" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览 (扩展板)</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-controller/with_wptrx.jpg" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 5" data-slide-index="4">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-小型四口交换机">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="2">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_switch.jpg" alt="小型四口交换机" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_switch_1.jpg" alt="小型四口交换机" data-slide-index="1">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="小型四口交换机 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            小型四口交换机
-                            
-                        </h3>
-                        
-                        <div class="card-desc">为 RoboMaster 哨兵机器人设计的小型交换机，可以一线直接连接两台电脑与两台 MID-360 激光雷达，集成激光雷达供电，极大简化接线。</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>体积小：60x45x10mm，接口布局在侧面，可安装在狭小空间中</li>
-                            
-                            <li>双口千兆，双口百兆 + 激光雷达供电</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="https://bbs.robomaster.com/article/760947" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
-                                
-                                <strong>开源文章</strong>
-                            </a>
-                            
-                            <a href="https://github.com/hkustenterprize/RM2025-Ethernet-Switch" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>工程文件</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Ethernet-Switch" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-controller/hardware_structure.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 6" data-slide-index="5">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-大功率-48v-转-24v-降压模块">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="2">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_buck.jpg" alt="大功率 48V 转 24V 降压模块" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_buck_1.png" alt="大功率 48V 转 24V 降压模块" data-slide-index="1">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="大功率 48V 转 24V 降压模块 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            大功率 48V 转 24V 降压模块
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p>大功率 48V 转 24V 降压模块，体积小，输出电流最大 20A，用于 RoboMaster 无人机的云台系统供电。</p>
-<p>使用独立辅助供电，大幅降低高压输入下的空载功耗。FCCM 模式允许输出电流倒灌。</p>
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>体积 45x22x20mm</li>
-                            
-                            <li>最大 20A 输出，FCCM 模式下空载功耗约 2W</li>
-                            
-                            <li>7.5A 负载时效率约 96.5%</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="https://bbs.robomaster.com/article/760956" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <span style="display:inline-block; width: 16px; height: 16px; background-color: currentColor; -webkit-mask: url('assets/images/rmLogo1.png') no-repeat center / contain; mask: url('assets/images/rmLogo1.png') no-repeat center / contain; margin-right: 0.3rem;" alt="开源文章"></span>
-                                
-                                <strong>开源文章</strong>
-                            </a>
-                            
-                            <a href="https://github.com/hkustenterprize/RM2025-LM5145-48to24" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>工程文件</strong>
-                            </a>
-                            
-                            <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-LM5145-48to24" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fas fa-microchip fa-fw fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>PCB 预览</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-controller/loop_structure.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 7" data-slide-index="6">
                 
-
+                <img class="media-slide" src="assets/projects/supercap-controller/system_structure.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 8" data-slide-index="7">
+                
+                <img class="media-slide" src="assets/projects/supercap-controller/buck_sequence.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 9" data-slide-index="8">
+                
+                <img class="media-slide" src="assets/projects/supercap-controller/buckboost_sequence.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 10" data-slide-index="9">
+                
+                <img class="media-slide" src="assets/projects/supercap-controller/boostbuck_sequence.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 11" data-slide-index="10">
+                
+                <img class="media-slide" src="assets/projects/supercap-controller/boost_sequence.png" alt="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片 12" data-slide-index="11">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="4" aria-label="切换到第 5 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="5" aria-label="切换到第 6 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="6" aria-label="切换到第 7 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="7" aria-label="切换到第 8 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="8" aria-label="切换到第 9 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="9" aria-label="切换到第 10 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="10" aria-label="切换到第 11 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="11" aria-label="切换到第 12 张图片"></button>
+                
+              </div>
+              
             </div>
-        </section>
-        
-        <section id="courseProjects">
-            <h2 class="section-title">课设项目</h2>
-            <div class="project-grid">
-                
-                
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-基于-fpga-的音频处理系统">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
+            
 
-                    
-                    <div class="card-image has-gallery" data-image-count="2">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_fpga.png" alt="基于 FPGA 的音频处理系统" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_fpga_2.jpg" alt="基于 FPGA 的音频处理系统" data-slide-index="1">
-                                
-                            
-                        </div>
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖）</h3>
+                <span class="status-pill">已开源</span>
+              </div>
 
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="基于 FPGA 的音频处理系统 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
+              <p class="project-summary">基于 STM32G474 的双向四开关 BuckBoost 超级电容控制器，可为机器人底盘提供 400W+ 额外功率。<b>特化方向：低空载功耗、小体积</b></p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
                     
                     
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            基于 FPGA 的音频处理系统
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p>基于 BASYS3 开发板设计，实现了具有多种滤波功能的音频处理系统，并可以通过 VGA 输出界面进行交互式控制和状态显示。</p>
-<p>该项目通过自制的 PCB 扩展版提供音频采样适配电路，使用 ADC 采样，进行数据处理后通过 I2S 协议输出给功率放大器，再输出到扬声器。</p>
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>5 段均衡器，可独立控制增益，通过 5 个 FIR 滤波器实现频谱分割在乘上不同增益实现</li>
-                            
-                            <li>高通/低通 IIR 滤波器，可动态调整截止频率，通过切换预先计算的系数组</li>
-                            
-                            <li>通过 VGA 输出界面，包含频谱图、不同均衡器开关、增益控制、输入输出音量等信息</li>
-                            
-                            <li>输出界面有半透明的背景图，并通过像素插值提升了图片的显示效果</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">FPGA开发</span>
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="assets/files/ELEC4320_Project_Demo.pdf" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fa fa-file-pdf fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>Demo PPT</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
-                
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-smt-贴片机">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">峰值 400W+ 额外输出功率</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>受限于比赛规则中的电容组电压 (30V)、电流 (15A) 限制</p>
+                      </details>
+                    </li>
                     
                     
-
                     
-                    <div class="card-image" data-image-count="1">
-                        <div class="card-image-main">
-                            
-                                <img class="card-image-slide active single-image" src="assets/images/c_smt.jpg" alt="SMT 贴片机" data-slide-index="0">
-                            
-                        </div>
-
-                        
-                    </div>
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">峰值效率 97.5%+</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>详见左侧图 4 效率曲线</p>
+                      </details>
+                    </li>
                     
                     
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            SMT 贴片机
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p> 本项目为嵌入式课程的课设，与队友合作开发，共同实现了一套完整的 SMT 贴片机系统 </p>
-<p> 本项目通过自制步进电机 FOC 驱动板、主控板与屏幕板，并通过 CAN 总线通讯，实现了稳定、精准的位置控制 </p>
-</div>
+                    
+                    <li><span class="list-text">空载功耗 <1.2W</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">持续电流 15A</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">电流环阶跃响应约 20us</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">体积 60x44x30mm</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">通过 CAN 总线与主控板通信，实时反馈运行状态与功率等参数</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
 
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>自研基于 STM32G431 的步进电机 FOC 驱动板</li>
-                            
-                            <li>自研基于 STM32G431 的主控板，除于电机通讯的 CAN 外，还有通过 I2S 驱动的功放、LED 灯带驱动等外设功能</li>
-                            
-                            <li>通过 SC8815 实现升降压充电与供电路径切换</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">峰值电流控制模式</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>采用高位采样峰值电流模式控制 + 数字外环调节。峰值电流内环完全由硬件实现，使得内环响应极快（阶跃响应约 20us），同时降低了 MCU 的运算压力。</p>
+                      </details>
+                    </li>
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">无隔离电源上管常开</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>上管常开有助于提高转换效率。本模块利用 BuckBoost 拓扑本身的特性（一侧半桥需要常开时另一侧半桥一定在进行开关），使用了类似电荷泵的结构实现上管常开，同时无需增加额外的控制芯片。相比与隔离电源方案，此设计<b>有效减小了空载功耗</b>至 0.8-1.2W 左右。</p>
+                      </details>
+                    </li>
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">完善的保护机制</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>拥有完善短路、过流、过压、电容组异常等保护功能，具有小故障自恢复逻辑与严重故障锁定功能，其中部分保护由硬件方式实现，提高了灵敏度并降低 MCU 负载。实际使用中，<b>保护系统曾多次有效识别并处理了电容组反接、电容组接线不稳</b>等情况，避免了危险事故的发生。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">充分利用 MCU 集成外设（DAC、比较器、运放、基准电压源、AWDG等）简化硬件设计</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">高可靠性：在全阵容机器人上<b>稳定运行两赛季，未出现故障</b></span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
 
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">硬件开发</span>
-                            
-                            <span class="tag">嵌入式开发(部分)</span>
-                            
-                            <span class="tag">机械结构设计(部分)</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="https://github.com/baoqi-zhong/Awesome-SMT-Machine" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>Github 链接</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
-                
-
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 相关链接">
+                    
+                    <a href="https://bbs.robomaster.com/article/761385" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      
+                      开源文章
+                    </a>
+                    
+                    <a href="https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      
+                      工程文件
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Control" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览：控制板
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControl_PCM_V0.1_Power" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览：功率板
+                    </a>
+                    
+                    <a href="assets/projects/supercap-controller/RM2025_SuperCap_WPT_PPT.pdf" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-pdf" aria-hidden="true"></span>
+                      
+                      项目简介
+                    </a>
+                    
+                    <a href="assets/projects/supercap-controller/RM2025_SuperCap_WPT_Report.pdf" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-pdf" aria-hidden="true"></span>
+                      
+                      完整开源报告
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
             </div>
-        </section>
-        
-        <section id="other">
-            <h2 class="section-title">其他项目</h2>
-            <div class="project-grid">
+          </article>
+          
+          <article class="project-card" id="supercap-array">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="5">
+              <div class="media-stage">
                 
+                <img class="media-slide active" src="assets/projects/supercap-array/c_caparr_0.jpg" alt="高能量密度超级电容组 图片 1" data-slide-index="0">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-foc-驱动板">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image" data-image-count="1">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_foc_1.jpg" alt="FOC 驱动板" data-slide-index="0">
-                                
-                            
-                        </div>
-
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            FOC 驱动板
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p> // </p>
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>//</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">//</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>//</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-array/c_caparr_1.jpg" alt="高能量密度超级电容组 图片 2" data-slide-index="1">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-工程机器人主控板">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="3">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_mcbeng_2.jpg" alt="工程机器人主控板" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_mcbeng_0.jpg" alt="工程机器人主控板" data-slide-index="1">
-                                
-                                <img class="card-image-slide" src="assets/images/c_mcbeng_1.jpg" alt="工程机器人主控板" data-slide-index="2">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="工程机器人主控板 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            工程机器人主控板
-                            
-                        </h3>
-                        
-                        <div class="card-desc">//</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>//</li>
-                            
-                            <li>//</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">//</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-array/c_caparr_4.jpg" alt="高能量密度超级电容组 图片 3" data-slide-index="2">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-基于主动预充电的-48v-缓启动模块-预计-2026-年-6-8-月开源">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image" data-image-count="1">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_softstart_0.jpg" alt="基于主动预充电的 48V 缓启动模块 (预计 2026 年 6-8 月开源)" data-slide-index="0">
-                                
-                            
-                        </div>
-
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            基于主动预充电的 48V 缓启动模块 (预计 2026 年 6-8 月开源)
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p> // </p>
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>//</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">//</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>//</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-array/c_caparr_3.png" alt="高能量密度超级电容组 图片 4" data-slide-index="3">
                 
-                <!-- 
-                   给每个项目卡片增加一个 ID 用于导航跳转
-                   ID 生成规则必须和上面导航栏的一致 (proj- slugify)
-                -->
-                <article class="project-card" id="proj-超级电容系统方案探索">
-                    
-                    <!-- 图片区域：支持 image(单图) 和 images(多图) -->
-                    
-                    
-
-                    
-                    <div class="card-image has-gallery" data-image-count="4">
-                        <div class="card-image-main">
-                            
-                                
-                                <img class="card-image-slide active" src="assets/images/c_cap_0.jpg" alt="超级电容系统方案探索" data-slide-index="0">
-                                
-                                <img class="card-image-slide" src="assets/images/c_cap_1.png" alt="超级电容系统方案探索" data-slide-index="1">
-                                
-                                <img class="card-image-slide" src="assets/images/c_cap_2.jpg" alt="超级电容系统方案探索" data-slide-index="2">
-                                
-                                <img class="card-image-slide" src="assets/images/c_cap_3.png" alt="超级电容系统方案探索" data-slide-index="3">
-                                
-                            
-                        </div>
-
-                        
-                        <div class="card-image-dots" role="tablist" aria-label="超级电容系统方案探索 图片切换">
-                            
-                            <button class="card-image-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
-                            
-                            <button class="card-image-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            
-                            超级电容系统方案探索
-                            
-                        </h3>
-                        
-                        <div class="card-desc"><p> // </p>
-</div>
-
-                        <!-- 如果有 details 列表，显示为小点 -->
-                        
-                        <ul style="padding-left: 1.2rem; margin-top: 0.3rem; margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
-                            
-                            <li>//</li>
-                            
-                        </ul>
-                        
-                        
-                        <!-- 显示开发状态 -->
-                        
-
-                        <!-- 显示技术栈标签 -->
-                        
-                        <div class="card-tags">
-                            
-                            <span class="tag">//</span>
-                            
-                        </div>
-                        
-
-                        <!-- 其他链接（类似于标签，带小图标） -->
-                        
-                        <p style="margin-top: 0.4rem; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;">
-                            
-                            <a href="" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; font-size: 0.95rem; opacity: 0.9; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9">
-                                
-                                <i class="fab fa-github fa-fw" style="margin-right: 0.3rem; text-align: center;"></i>
-                                
-                                <strong>//</strong>
-                            </a>
-                            
-                        </p>
-                        
-                    </div>
-                </article>
+                <img class="media-slide" src="assets/projects/supercap-array/c_caparr_2.jpg" alt="高能量密度超级电容组 图片 5" data-slide-index="4">
                 
-
+              </div>
+              
+              <div class="media-controls" aria-label="高能量密度超级电容组 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="4" aria-label="切换到第 5 张图片"></button>
+                
+              </div>
+              
             </div>
-        </section>
-        
+            
 
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>高能量密度超级电容组</h3>
+                <span class="status-pill">已开源</span>
+              </div>
+
+              <p class="project-summary">适用于 RoboMaster 机器人的高能量密度超级电容组，通过尝试不同电容选型和结构排布实现高能量密度。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">理论储能约 1980J，实测大于 2150J</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">峰值放电电流约 30A</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">体积 78x44x66mm</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">设计运行电压 29.0V (V1) / 29.5V (V2)</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">使用柔性外壳提升恶劣工况下的防护能力</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    
+                    
+                    <li><span class="list-text">超小体积（约为上一代的 50%），可将电容组压缩到机器人标准装甲板支架空间内</span></li>
+                    
+                    
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">高精度被动均衡</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>V1：单体保护电压 2.95V，满电电压约 29.2V <br> V2：单体保护电压 2.98V，满电电压约 29.5V，通过 TL431 分立方案实现了泄放触发阈值偏差 < 5mV <br> 主动均衡： 通过 MCU 监测单体电压，使用电感式主动均衡方案实现了更小的电路体积与更高的安全性，后因会产生额外的功耗而放弃。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">已知超过 20 支队伍复刻</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">高可靠性：在全阵容机器人上<b>稳定运行两赛季，未出现故障</b></span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="高能量密度超级电容组 相关链接">
+                    
+                    <a href="https://bbs.robomaster.com/article/760959?source=8" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      
+                      开源文章
+                    </a>
+                    
+                    <a href="https://github.com/hkustenterprize/RM2025-Super-Capacitor-Array" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      
+                      工程文件
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Super-Capacitor-Array" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="buffer-capacitor-system-bypass">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="3">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/buffer-capacitor-system-bypass/bottom.png" alt="关节电机缓冲电容（旁路方案） 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/buffer-capacitor-system-bypass/top.jpg" alt="关节电机缓冲电容（旁路方案） 图片 2" data-slide-index="1">
+                
+                <img class="media-slide" src="assets/projects/buffer-capacitor-system-bypass/heat_sink.jpg" alt="关节电机缓冲电容（旁路方案） 图片 3" data-slide-index="2">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="关节电机缓冲电容（旁路方案） 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>关节电机缓冲电容（旁路方案）</h3>
+                <span class="status-pill">使用中</span>
+              </div>
+
+              <p class="project-summary">将电容组通过双向四开关 BuckBoost 连接至供电母线，通过超级电容放电为关节电机提供额外爆发功率（~800W），提升整机稳定性与输出能力。<b>特化方向：高集成度、高功率</b></p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">最大输出功率约 800W</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>受限于超级电容放电能力（36A）、超级电容内阻、电感饱和电流</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">电容端峰值放电电流 40A，峰值电感电流 50A</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">体积 100x37x48mm</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">通过 CAN 总线与主控板通信，实时反馈运行状态与功率等参数</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    
+                    
+                    <li><span class="list-text">通过将电容单体、均衡电路、控制电路、功率电路集成在同一块 PCB 上以实现小体积、高功率密度与稳定性。</span></li>
+                    
+                    
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">峰值电流控制模式（低位采样）</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>采用<b>低位采样峰值电流模式控制</b> + 数字外环调节。峰值电流内环完全由硬件实现，响应极快（阶跃响应约 20us），降低了 MCU 的运算压力。低位采样构型使得电感电流采样带宽提高，更好还原电感电流波形，占空比抖动更小。通过优化 layout 与原件选型将消隐时间降低到 200ns。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">上管常开</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>上管常开有助于提高转换效率并允许低位采样设计下更高的占空比范围。利用 BuckBoost 拓扑本身的特性（一侧半桥需要常开时另一侧半桥一定在进行开关），使用了类似电荷泵的结构实现上管常开，同时无需增加额外的控制芯片。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">完善的保护机制</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>拥有完善短路、过流、过压、电容组异常等保护功能，具有小故障自恢复逻辑与严重故障锁定功能。</p>
+                      </details>
+                    </li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="buffer-capacitor-system-boost">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="3">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/buffer-capacitor-system-bypass/c_capbypass_0.jpg" alt="关节电机缓冲电容（升压并联方案） 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/buffer-capacitor-system-bypass/c_capbypass_1.jpg" alt="关节电机缓冲电容（升压并联方案） 图片 2" data-slide-index="1">
+                
+                <img class="media-slide" src="assets/projects/buffer-capacitor-system-bypass/c_capbypass_2.jpg" alt="关节电机缓冲电容（升压并联方案） 图片 3" data-slide-index="2">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="关节电机缓冲电容（升压并联方案） 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>关节电机缓冲电容（升压并联方案）</h3>
+                <span class="status-pill">使用中</span>
+              </div>
+
+              <p class="project-summary">通过在超级电容组前端增加缓冲电容，降低超级电容组的峰值电流压力，提高系统可靠性。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">缓冲电容容量约 1.5mF</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">缓冲电容峰值放电电流约 30A</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">缓冲电容体积约 40x20x20mm</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    
+                    
+                    <li><span class="list-text">在不改变超级电容组结构的情况下，降低了超级电容组的峰值放电压力，提高了系统可靠性</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="supercap-exploration">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="4">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/supercap-exploration/c_cap_0.jpg" alt="超级电容系统方案探索 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/supercap-exploration/c_cap_1.png" alt="超级电容系统方案探索 图片 2" data-slide-index="1">
+                
+                <img class="media-slide" src="assets/projects/supercap-exploration/c_cap_2.jpg" alt="超级电容系统方案探索 图片 3" data-slide-index="2">
+                
+                <img class="media-slide" src="assets/projects/supercap-exploration/c_cap_3.png" alt="超级电容系统方案探索 图片 4" data-slide-index="3">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="超级电容系统方案探索 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>超级电容系统方案探索</h3>
+                <span class="status-pill">方案探索 / 待补充</span>
+              </div>
+
+              <p class="project-summary">在保持四开关双向 BuckBoost 主拓扑的基础上，探索更小体积、更高频率和更稳定采样的下一代方案。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">GaN 功率级探索</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">电感电流采样探索</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">低位采样与霍尔采样对比</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">主动均衡电容组探索</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">电流采样方向对比</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>高位采样便于贴合现有系统保护逻辑，但共模和带宽压力较大；低位采样实现简单且动态更直接，但系统地参考和故障诊断需要重新设计；电感电流采样能更接近控制对象，但对采样器件的带宽、共模抑制和布局要求更高。</p>
+                      </details>
+                    </li>
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">GaN 功率级动机</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>目标是降低开关损耗和导通损耗，并通过更高开关频率减小电感体积。实际设计中需要同时处理驱动环路、开关节点噪声、热阻和 EMI。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">通过提高开关频率尝试缩小电感和模块体积</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">对比高位采样、低位采样、电感采样和霍尔采样的控制效果</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">探索电感式主动均衡，用 MCU 监测单体电压</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="supercap-optimized-controllers">
+            
+            
+
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>超级电容控制器优化方案</h3>
+                <span class="status-pill">待补充</span>
+              </div>
+
+              <p class="project-summary">为后续补充的多方向优化控制器预留位置，可记录不同采样方式、功率级和控制策略的样机对比。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">三个优化方向待补充</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">控制器与电容组联调待补充</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">测试波形与效率数据待补充</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    
+                    
+                    <li><span class="list-text">后续可按“设计目标 - 关键取舍 - 验证结果”补全</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+      
+      <section class="category-section observed-section" id="power-modules">
+        <div class="section-heading">
+          <h2>功率模块</h2>
+          <p>面向整机能源链路中的功率变换、供电路径和异常保护，包含无线充电、DC-DC、预充电和缓启动等模块。</p>
+        </div>
+
+        <div class="project-list">
+          
+          <article class="project-card" id="wireless-charging">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="8">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/wireless-charging/c_wpt_7.jpg" alt="RoboMaster 无线充电系统 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/wireless-charging/c_wpt_5.jpg" alt="RoboMaster 无线充电系统 图片 2" data-slide-index="1">
+                
+                <img class="media-slide" src="assets/projects/wireless-charging/c_wpt_6.jpg" alt="RoboMaster 无线充电系统 图片 3" data-slide-index="2">
+                
+                <img class="media-slide" src="assets/projects/wireless-charging/c_wpt_0.jpg" alt="RoboMaster 无线充电系统 图片 4" data-slide-index="3">
+                
+                <img class="media-slide" src="assets/projects/wireless-charging/c_wpt_1.png" alt="RoboMaster 无线充电系统 图片 5" data-slide-index="4">
+                
+                <img class="media-slide" src="assets/projects/wireless-charging/c_wpt_2.jpg" alt="RoboMaster 无线充电系统 图片 6" data-slide-index="5">
+                
+                <img class="media-slide" src="assets/projects/wireless-charging/c_wpt_3.jpg" alt="RoboMaster 无线充电系统 图片 7" data-slide-index="6">
+                
+                <img class="media-slide" src="assets/projects/wireless-charging/c_wpt_4.jpg" alt="RoboMaster 无线充电系统 图片 8" data-slide-index="7">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="RoboMaster 无线充电系统 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="3" aria-label="切换到第 4 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="4" aria-label="切换到第 5 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="5" aria-label="切换到第 6 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="6" aria-label="切换到第 7 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="7" aria-label="切换到第 8 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>RoboMaster 无线充电系统</h3>
+                <span class="status-pill">已开源 / 实机运行</span>
+              </div>
+
+              <p class="project-summary">基于 STM32G474 的数控无线充电发射端，可为机器人以 120W、86% 效率进行无线充电。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">最大功率 120W+</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">整体充电效率约 86%</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">80mm 线圈可承受约 15mm 偏移</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">ASK 反向通信实现功率闭环</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">ASK 反向通信</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>接收端通过负载调制向发射端反馈状态，发射端根据反馈调节功率输出。关键点是让通信在功率传输噪声和线圈偏移下仍保持稳定。</p>
+                      </details>
+                    </li>
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">抗偏移设计</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>无线充电不是只看最佳对齐点效率，还要看机器人实际停靠误差下的功率和热稳定性。线圈尺寸、补偿网络和机械导向结构需要一起设计。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">使用 LCC-S 拓扑，兼顾效率和抗偏移能力</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">通过接收端反馈实现功率闭环和异常保护</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">设计机械对位结构，提升机器人自动对位可靠性</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="RoboMaster 无线充电系统 相关链接">
+                    
+                    <a href="https://bbs.robomaster.com/article/761385" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      
+                      开源文章：硬件/嵌入式
+                    </a>
+                    
+                    <a href="https://bbs.robomaster.com/article/760961" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      
+                      开源文章：机械结构/展示
+                    </a>
+                    
+                    <a href="https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      
+                      工程文件
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FWirelessCharger_V0.1" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览：发射端
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControlBoard_RXCoil_V0.1" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览：接收端
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="buck-48v-24v">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="2">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/buck-48v-24v/c_buck.jpg" alt="大功率 48V 转 24V 降压模块 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/buck-48v-24v/c_buck_1.png" alt="大功率 48V 转 24V 降压模块 图片 2" data-slide-index="1">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="大功率 48V 转 24V 降压模块 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>大功率 48V 转 24V 降压模块</h3>
+                <span class="status-pill">已开源</span>
+              </div>
+
+              <p class="project-summary">小体积 48V 转 24V 降压模块，用于 RoboMaster 无人机云台系统供电。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">最大 20A 输出</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">体积约 45x22x20mm</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">7.5A 负载效率约 96.5%</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">FCCM 模式空载功耗约 2W</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">辅助供电与空载功耗</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>高压输入下若直接由主功率芯片内部路径供电，轻载和空载损耗会比较明显。独立辅助供电可以降低控制部分损耗，并改善热设计余量。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">使用独立辅助供电，降低高压输入下的空载功耗</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">FCCM 模式允许输出电流倒灌，适配特殊负载工况</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="大功率 48V 转 24V 降压模块 相关链接">
+                    
+                    <a href="https://bbs.robomaster.com/article/760956" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      
+                      开源文章
+                    </a>
+                    
+                    <a href="https://github.com/hkustenterprize/RM2025-LM5145-48to24" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      
+                      工程文件
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-LM5145-48to24" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="active-precharge">
+            
+            
+
+            
+            <div class="project-media" data-image-count="1">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/active-precharge/c_softstart_0.jpg" alt="基于主动预充电的 48V 缓启动模块 图片 1" data-slide-index="0">
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>基于主动预充电的 48V 缓启动模块</h3>
+                <span class="status-pill">待开源 / 待补充</span>
+              </div>
+
+              <p class="project-summary">使用主动预充电解决负载存在电流时缓启动失败的问题，面向 48V 大电容和动力负载启动场景。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">预充电峰值电流可达 10A</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">目标负载约 8mF 电容 + 4 个无人机动力电机</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">启动冲击电流控制在约 15A 内</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">主动预充电的动机</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>传统缓启动更适合近似纯电容负载。当负载在启动阶段已经消耗电流时，软启动路径可能无法按预期抬升母线电压。主动预充电通过受控电流先建立负载端电压，再切换主功率路径。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">使用 LM3409HV 恒流降压特性为负载预充电</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">启动后由主功率开关旁路预充电路径</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">主功率 MOS 使用 LM5069 驱动</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+      
+      <section class="category-section observed-section" id="general-modules">
+        <div class="section-heading">
+          <h2>通用模块</h2>
+          <p>机器人主控、通信、传感和外设接口</p>
+        </div>
+
+        <div class="project-list">
+          
+          <article class="project-card" id="main-control-board-v2">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="3">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/main-control-board-v2/c_mcbv2.jpg" alt="通用机器人主控板 V2 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/main-control-board-v2/c_mcbv2_1.jpg" alt="通用机器人主控板 V2 图片 2" data-slide-index="1">
+                
+                <img class="media-slide" src="assets/projects/main-control-board-v2/c_mcbv2_2.jpg" alt="通用机器人主控板 V2 图片 3" data-slide-index="2">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="通用机器人主控板 V2 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>通用机器人主控板 V2</h3>
+                <span class="status-pill">已开源 / 实机运行</span>
+              </div>
+
+              <p class="project-summary">第二代通用机器人主控板，采用核心板与扩展板双板结构，在小体积内集成多类机器人外设接口。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">核心尺寸约 60x40mm</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">80Pin 板对板连接</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">在 8 台机器人上稳定使用一年以上</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">双板架构</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>核心板承载 MCU、基础电源和关键调试接口，扩展板承载机器人差异化外设。这样在机器人改版时可以减少核心控制部分返工，同时让接口布局更贴近线束需求。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">核心板与扩展板分离，提升复用性和维护性</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">针对焊接、维护和电源保护进行优化</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">通过统一接口降低不同机器人模块适配成本</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="通用机器人主控板 V2 相关链接">
+                    
+                    <a href="https://bbs.robomaster.com/article/760965" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      
+                      开源文章
+                    </a>
+                    
+                    <a href="https://github.com/hkustenterprize/RM2025-G4-MainControlBoard-V2/tree/main" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      
+                      工程文件
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览：核心板
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB_StdExtend" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览：扩展板
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="ethernet-switch">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="2">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/ethernet-switch/c_switch.jpg" alt="小型四口交换机 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/ethernet-switch/c_switch_1.jpg" alt="小型四口交换机 图片 2" data-slide-index="1">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="小型四口交换机 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>小型四口交换机</h3>
+                <span class="status-pill">已开源</span>
+              </div>
+
+              <p class="project-summary">为 RoboMaster 哨兵机器人设计的小型交换机，可同时连接电脑和 MID-360 激光雷达，并集成雷达供电。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">体积约 60x45x10mm</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">双口千兆 + 双口百兆</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">集成激光雷达供电</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    
+                    
+                    <li><span class="list-text">接口布置在侧面，适合安装在狭小空间</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">用一块板整合通信与雷达供电，简化哨兵线束</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="小型四口交换机 相关链接">
+                    
+                    <a href="https://bbs.robomaster.com/article/760947" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-rm" aria-hidden="true"></span>
+                      
+                      开源文章
+                    </a>
+                    
+                    <a href="https://github.com/hkustenterprize/RM2025-Ethernet-Switch" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      
+                      工程文件
+                    </a>
+                    
+                    <a href="https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Ethernet-Switch" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-chip" aria-hidden="true"></span>
+                      
+                      PCB 预览
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="engineer-main-control-board">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="3">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/engineer-main-control-board/c_mcbeng_2.jpg" alt="工程机器人主控板 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/engineer-main-control-board/c_mcbeng_0.jpg" alt="工程机器人主控板 图片 2" data-slide-index="1">
+                
+                <img class="media-slide" src="assets/projects/engineer-main-control-board/c_mcbeng_1.jpg" alt="工程机器人主控板 图片 3" data-slide-index="2">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="工程机器人主控板 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>工程机器人主控板</h3>
+                <span class="status-pill">已落地</span>
+              </div>
+
+              <p class="project-summary">基于 STM32G473 的工程机器人主控板，集成气泵、气阀、气压检测和大功率继电器等功能。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">双板结构</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">多路气压与气泵驱动</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">集成大功率继电器控制</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">气动系统接口集成</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>工程机器人外设类型多、线束复杂。主控板需要同时处理低压传感、阀泵驱动和大功率电源通断，因此接口分区和保护设计比单一控制板更重要。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">使用 MCU 内部运放实现四路气压传感器电压放大和检测</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">将工程机器人常用执行与检测接口集中到主控板</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+      
+      <section class="category-section observed-section" id="actuators-drives">
+        <div class="section-heading">
+          <h2>执行器</h2>
+          <p>面向机器人执行链路中的电机驱动、激光振镜执行器</p>
+        </div>
+
+        <div class="project-list">
+          
+          <article class="project-card" id="high-power-foc">
+            
+            
+
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>大功率 FOC 驱动器</h3>
+                <span class="status-pill">待补充</span>
+              </div>
+
+              <p class="project-summary">为后续补充的大功率 FOC 项目预留位置，可记录功率级、采样、驱动保护、控制闭环和负载测试。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">功率等级待补充</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">电流采样方案待补充</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">效率与温升数据待补充</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    
+                    
+                    <li><span class="list-text">后续可作为执行器与驱动方向的重点项目</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="bldc-foc-board">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="2">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/bldc-foc-board/c_foc_1.jpg" alt="无刷电机 FOC 驱动板 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/bldc-foc-board/c_foc_2.jpg" alt="无刷电机 FOC 驱动板 图片 2" data-slide-index="1">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="无刷电机 FOC 驱动板 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>无刷电机 FOC 驱动板</h3>
+                <span class="status-pill">已验证 / 待补充</span>
+              </div>
+
+              <p class="project-summary">基于 STSPIN32G431 开发的 FOC 驱动板，利用 MCU 集成运放实现低位电流采样。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">STM32G431 / STSPIN32G431 平台</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">低位电流采样</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">MCU 内部运放</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">低位电流采样</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>低位采样实现简单、成本低、对放大器共模要求低，适合快速验证 FOC 控制链路。但它会改变系统地参考下的电流测量方式，保护和噪声处理需要同步考虑。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">用于验证电机驱动功率级、采样链路和控制闭环</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <p class="empty-note">待补充</p>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card" id="smt-machine">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="3">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/smt-machine/c_smt.jpg" alt="SMT 贴片机 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/smt-machine/c_smt_1.jpg" alt="SMT 贴片机 图片 2" data-slide-index="1">
+                
+                <img class="media-slide" src="assets/projects/smt-machine/c_smt_2.jpg" alt="SMT 贴片机 图片 3" data-slide-index="2">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="SMT 贴片机 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="2" aria-label="切换到第 3 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>SMT 贴片机</h3>
+                <span class="status-pill">课程项目</span>
+              </div>
+
+              <p class="project-summary">与队友合作开发的完整 SMT 贴片机系统，包含步进电机 FOC 驱动板、主控板、屏幕板和 CAN 通信。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">STM32G431 步进电机 FOC 驱动板</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">CAN 总线通信</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">SC8815 供电路径与充电管理</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    
+                    
+                    <li><span class="list-text">自制步进电机 FOC 驱动板、主控板与屏幕板</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">通过 CAN 总线实现稳定的位置控制</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">主控板集成 I2S 功放、LED 灯带驱动等外设</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="SMT 贴片机 相关链接">
+                    
+                    <a href="https://github.com/baoqi-zhong/Awesome-SMT-Machine" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-github" aria-hidden="true"></span>
+                      
+                      GitHub 链接
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+      
+      <section class="category-section observed-section" id="other-capabilities">
+        <div class="section-heading">
+          <h2>其他/开发中</h2>
+          <p>课设、开发中项目</p>
+        </div>
+
+        <div class="project-list">
+          
+          <article class="project-card" id="fpga-audio">
+            
+            
+
+            
+            <div class="project-media has-gallery" data-image-count="2">
+              <div class="media-stage">
+                
+                <img class="media-slide active" src="assets/projects/fpga-audio/c_fpga.png" alt="基于 FPGA 的音频处理系统 图片 1" data-slide-index="0">
+                
+                <img class="media-slide" src="assets/projects/fpga-audio/c_fpga_2.jpg" alt="基于 FPGA 的音频处理系统 图片 2" data-slide-index="1">
+                
+              </div>
+              
+              <div class="media-controls" aria-label="基于 FPGA 的音频处理系统 图片切换">
+                
+                <button class="media-dot active" type="button" data-slide-to="0" aria-label="切换到第 1 张图片"></button>
+                
+                <button class="media-dot" type="button" data-slide-to="1" aria-label="切换到第 2 张图片"></button>
+                
+              </div>
+              
+            </div>
+            
+
+            <div class="project-body">
+              <div class="project-title-row">
+                <h3>基于 FPGA 的音频处理系统</h3>
+                <span class="status-pill">课程项目</span>
+              </div>
+
+              <p class="project-summary">基于 BASYS3 开发板实现多种音频滤波功能，并通过 VGA 输出交互界面进行控制和状态显示。</p>
+
+              <div class="project-info-grid">
+                <section class="project-info-column">
+                  <h4>关键参数</h4>
+                  
+                  <ul class="compact-list">
+                    
+                    
+                    <li><span class="list-text">5 段均衡器</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">FIR / IIR 滤波</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">VGA 图形界面</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">ADC 采样与 I2S 输出</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>亮点与创新</h4>
+                  
+                  
+                  <ul class="compact-list insight-list">
+                    
+                    <li class="expandable-item">
+                      <details class="inline-detail-item">
+                        <summary>
+                          <span class="detail-title">FPGA 音频链路</span>
+                          <span class="detail-toggle">详情</span>
+                        </summary>
+                        <p>项目覆盖从模拟音频适配、ADC 采样、数字滤波、I2S 输出到 VGA 可视化的完整链路，重点是把数字逻辑、时序和外部硬件接口打通。</p>
+                      </details>
+                    </li>
+                    
+                    
+                    
+                    <li><span class="list-text">自制 PCB 扩展板提供音频采样适配电路</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">通过 5 个 FIR 滤波器实现频谱分割和独立增益控制</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">高通/低通 IIR 滤波器可动态切换截止频率</span></li>
+                    
+                    
+                    
+                    <li><span class="list-text">VGA 界面显示频谱、开关、增益和音量信息</span></li>
+                    
+                    
+                  </ul>
+                  
+                </section>
+
+                <section class="project-info-column">
+                  <h4>相关链接</h4>
+                  
+                  <div class="link-row" aria-label="基于 FPGA 的音频处理系统 相关链接">
+                    
+                    <a href="assets/projects/fpga-audio/ELEC4320_Project_Demo.pdf" target="_blank" rel="noopener">
+                      
+                      <span class="link-icon icon-pdf" aria-hidden="true"></span>
+                      
+                      Demo PPT
+                    </a>
+                    
+                  </div>
+                  
+                </section>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+      
     </main>
-</div>
+  </div>
 
-<div class="image-preview-modal" id="imagePreviewModal" aria-hidden="true">
-    <button class="image-preview-close" id="imagePreviewClose" type="button" aria-label="关闭预览">×</button>
-    <img id="imagePreviewModalImg" src="" alt="项目图片预览">
-</div>
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" type="button" aria-label="关闭图片预览">关闭</button>
+    <img id="modalImage" src="" alt="项目图片预览">
+  </div>
 
-<!-- 脚本：实现滚动高亮 -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // 监听所有项目卡片
-    const projectCards = document.querySelectorAll('.project-card');
-    const navLinks = document.querySelectorAll('.sub-nav a');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalClose = document.getElementById('modalClose');
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        // 1. 尝试匹配具体的项目卡片
-        projectCards.forEach(card => {
-            const cardTop = card.offsetTop;
-            // 减去 100px 是为了在元素刚进入视口偏上位置时就触发
-            if (pageYOffset >= (cardTop - 150)) {
-                current = card.getAttribute('id');
-            }
-        });
+      document.querySelectorAll('.project-media').forEach((media) => {
+        const slides = Array.from(media.querySelectorAll('.media-slide'));
+        const dots = Array.from(media.querySelectorAll('.media-dot'));
 
-        // 2. 高亮当前视口内的子菜单链接
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            // 检查链接的 href 是否匹配当前 ID
-            // href 可能是 "#proj-xxx"，我们需要比较整个字符串
-            if (link.getAttribute('href') === ('#' + current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    const imageContainers = document.querySelectorAll('.card-image[data-image-count]');
-    const previewModal = document.getElementById('imagePreviewModal');
-    const previewModalImg = document.getElementById('imagePreviewModalImg');
-    const previewCloseBtn = document.getElementById('imagePreviewClose');
-
-    imageContainers.forEach(container => {
-        const imageCount = Number(container.dataset.imageCount || '0');
-        const slides = container.querySelectorAll('.card-image-slide');
-        const dots = container.querySelectorAll('.card-image-dot');
-
-        const showSlide = (targetIndex) => {
-            slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === targetIndex);
-            });
-
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === targetIndex);
-            });
+        const showSlide = (index) => {
+          slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle('active', slideIndex === index);
+          });
+          dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('active', dotIndex === index);
+          });
         };
 
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const targetIndex = Number(dot.dataset.slideTo || '0');
-                showSlide(targetIndex);
-            });
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            showSlide(Number(dot.dataset.slideTo || 0));
+          });
         });
 
-        slides.forEach(slide => {
-            slide.style.cursor = 'zoom-in';
-            slide.addEventListener('click', () => {
-                previewModalImg.src = slide.src;
-                previewModal.classList.add('open');
-                previewModal.setAttribute('aria-hidden', 'false');
-            });
+        slides.forEach((slide) => {
+          slide.addEventListener('click', () => {
+            modalImage.src = slide.src;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+          });
         });
-    });
+      });
 
-    const closePreview = () => {
-        previewModal.classList.remove('open');
-        previewModal.setAttribute('aria-hidden', 'true');
-        previewModalImg.src = '';
-    };
+      const closeModal = () => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImage.src = '';
+      };
 
-    previewCloseBtn.addEventListener('click', closePreview);
-
-    previewModal.addEventListener('click', (event) => {
-        if (event.target === previewModal) {
-            closePreview();
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
         }
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && previewModal.classList.contains('open')) {
-            closePreview();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('open')) {
+          closeModal();
         }
-    });
-});
-</script>
+      });
 
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const sections = Array.from(document.querySelectorAll('.observed-section'));
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (!visible) return;
+
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id);
+          });
+        }, { rootMargin: '-20% 0px -65% 0px', threshold: [0.1, 0.25, 0.5] });
+
+        sections.forEach((section) => observer.observe(section));
+      }
+    });
+  </script>
 </body>
 </html>
