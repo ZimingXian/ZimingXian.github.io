@@ -1,7 +1,7 @@
 ﻿- id: supercap-system
   title: 超级电容系统
   description: 以<b>双向四开关 DCDC </b>为核心电路、利用超级电容高功率密度的特性为机器人底盘电机、关节电机提供缓冲，提高系统瞬时功率上限。采用峰值模拟电流内环 + 数字外环实现较快的响应速度；以可靠性作为核心设计指标，完善的保护机制经过长期使用验证；基于不同应用场景进行优化设计，以达到最大效能。
-  cover: assets/projects/supercap-controller/c_supercap_0.png
+  cover: assets/projects/supercap-controller/cover.png
   items:
     - id: supercap-controller
       title: 底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖）
@@ -100,7 +100,7 @@
         - 通过 CAN 总线与主控板通信，实时反馈运行状态与功率等参数
       highlights:
         - 通过将电容单体、均衡电路、控制电路、功率电路集成在同一块 PCB 上以实现小体积、高功率密度与稳定性。
-        - title: 峰值电流控制模式（低位采样）
+        - title: 峰值电流控制模式
           content: 采用<b>低位采样峰值电流模式控制</b> + 数字外环调节。峰值电流内环完全由硬件实现，响应极快（阶跃响应约 20us），降低了 MCU 的运算压力。低位采样构型使得电感电流采样带宽提高，更好还原电感电流波形，占空比抖动更小。通过优化 layout 与原件选型将消隐时间降低到 200ns。
         - title: 上管常开
           content: 上管常开有助于提高转换效率并允许低位采样设计下更高的占空比范围。利用 BuckBoost 拓扑本身的特性（一侧半桥需要常开时另一侧半桥一定在进行开关），使用了类似电荷泵的结构实现上管常开，同时无需增加额外的控制芯片。 
@@ -111,63 +111,78 @@
     - id: buffer-capacitor-system-boost
       title: 关节电机缓冲电容（升压并联方案）
       status: 使用中
-      summary: 通过在超级电容组前端增加缓冲电容，降低超级电容组的峰值电流压力，提高系统可靠性。
+      summary: 通过双向四开关 BuckBoost 向电容组充电，再通过继电器连接电机，为关节电机提供超过 2000W 爆发功率。<b>特化方向：高功率、持续高负载运行</b>
       images:
-        - assets/projects/buffer-capacitor-system-bypass/c_capbypass_0.jpg
-        - assets/projects/buffer-capacitor-system-bypass/c_capbypass_1.jpg
-        - assets/projects/buffer-capacitor-system-bypass/c_capbypass_2.jpg
+        - assets/projects/buffer-capacitor-system-boost/full_system.jpg
+        - assets/projects/buffer-capacitor-system-boost/controller.jpg
+        - assets/projects/buffer-capacitor-system-boost/controller_bottom.jpg
+        - assets/projects/buffer-capacitor-system-boost/caparray.jpg
       metrics:
-        - 缓冲电容容量约 1.5mF
-        - 缓冲电容峰值放电电流约 30A
-        - 缓冲电容体积约 40x20x20mm
+        - 最大瞬时输出功率大于 2000W
+        - 集成具有 SOA 限制功能的高位开关
+        - title: 持续 200W 负载下控制器温度低于 60°C
+          content: 输入电压 20-24V，电容电压29V，被动散热
       highlights:
-        - 在不改变超级电容组结构的情况下，降低了超级电容组的峰值放电压力，提高了系统可靠性
+        - 集成超级电容单体电压监测
+        - title: 具有完善的交互机制，通过 LED 与蜂鸣器指示控制器工作状态
+          content: 详见使用手册
+        - title: 峰值电流控制模式
+          content: 采用<b>低位采样峰值电流模式控制</b> + 数字外环调节。峰值电流内环完全由硬件实现，响应极快（阶跃响应约 20us），降低了 MCU 的运算压力。低位采样构型使得电感电流采样带宽提高，更好还原电感电流波形，占空比抖动更小。通过优化 layout 与原件选型将消隐时间降低到 200ns。
+        - title: 上管常开
+          content: 上管常开有助于提高转换效率并允许低位采样设计下更高的占空比范围。利用 BuckBoost 拓扑本身的特性（一侧半桥需要常开时另一侧半桥一定在进行开关），使用了类似电荷泵的结构实现上管常开，同时无需增加额外的控制芯片。 
+        - title: 完善的保护机制
+          content: 拥有完善短路、过流、过压、电容组异常等保护功能，具有小故障自恢复逻辑与严重故障锁定功能。
+        - title: 高精度被动均衡
+          content: 单体保护电压 2.98V，满电电压约 29.5V，通过 TL431 分立方案实现了泄放触发阈值偏差 < 5mV
       links:
+        - name: 使用手册
+          url: "assets/projects/buffer-capacitor-system-boost/Manual.pdf"
     
-    - id: supercap-exploration
-      title: 超级电容系统方案探索
-      status: 方案探索 / 待补充
-      summary: 在保持四开关双向 BuckBoost 主拓扑的基础上，探索更小体积、更高频率和更稳定采样的下一代方案。
+    - id: supercap-controller-26
+      title: 底盘超级电容控制器
+      status: 开发中
+      summary: 在保持核心方案不变的前提下，通过优化 layout 进一步压缩体积并通过降低开关频率进一步减小空载功耗。<b>特化方向：低空载功耗、超小体积</b>
       images:
-        - assets/projects/supercap-exploration/c_cap_0.jpg
-        - assets/projects/supercap-exploration/c_cap_1.png
-        - assets/projects/supercap-exploration/c_cap_2.jpg
-        - assets/projects/supercap-exploration/c_cap_3.png
+        - assets/projects/supercap-controller-26/top.jpg
+        - assets/projects/supercap-controller-26/bottom.jpg
+        - assets/projects/supercap-controller-26/size.jpg
       metrics:
-        - GaN 功率级探索
-        - 电感电流采样探索
-        - 低位采样与霍尔采样对比
-        - 主动均衡电容组探索
+        - 峰值 400W+ 额外输出功率
+        - 峰值效率 97.5%+
+        - 空载功耗 <1.0W
+        - 持续电流 15A
+        - 电流环阶跃响应约 20us
+        - 体积 50x40x22mm
       highlights:
-        - 通过提高开关频率尝试缩小电感和模块体积
-        - 对比高位采样、低位采样、电感采样和霍尔采样的控制效果
-        - 探索电感式主动均衡，用 MCU 监测单体电压
-      notes:
-        - title: 电流采样方向对比
-          content: 高位采样便于贴合现有系统保护逻辑，但共模和带宽压力较大；低位采样实现简单且动态更直接，但系统地参考和故障诊断需要重新设计；电感电流采样能更接近控制对象，但对采样器件的带宽、共模抑制和布局要求更高。
-        - title: GaN 功率级动机
-          content: 目标是降低开关损耗和导通损耗，并通过更高开关频率减小电感体积。实际设计中需要同时处理驱动环路、开关节点噪声、热阻和 EMI。
+        - 充分利用 MCU 集成外设（DAC、比较器、运放、基准电压源、AWDG等）简化硬件设计
+        - title: 峰值电流控制模式
+          content: 采用低位采样峰值电流模式控制 + 数字外环调节。峰值电流内环完全由硬件实现，使得内环响应极快（阶跃响应约 20us），同时降低了 MCU 的运算压力。
+        - title: 无隔离电源上管常开
+          content: 上管常开有助于提高转换效率。本模块利用 BuckBoost 拓扑本身的特性（一侧半桥需要常开时另一侧半桥一定在进行开关），使用了类似电荷泵的结构实现上管常开，同时无需增加额外的控制芯片。相比与隔离电源方案，此设计<b>有效减小了空载功耗</b>至 0.8-1.2W 左右。 
+        - title: 完善的保护机制
+          content: 拥有完善短路、过流、过压、电容组异常等保护功能，具有小故障自恢复逻辑与严重故障锁定功能，其中部分保护由硬件方式实现，提高了灵敏度并降低 MCU 负载。
 
-    - id: supercap-optimized-controllers
-      title: 超级电容控制器优化方案
-      status: 待补充
-      summary: 为后续补充的多方向优化控制器预留位置，可记录不同采样方式、功率级和控制策略的样机对比。
+    - id: supercap-controller-develop
+      title: 其他超级电容控制器方案
+      summary: 在保持双向四开关 BuckBoost 功率级架构不变的前提下，对不同方案进行探索，目前已测试方案如下
       metrics:
-        - 三个优化方向待补充
-        - 控制器与电容组联调待补充
-        - 测试波形与效率数据待补充
+        - 换用氮化镓开关管（ISG3202LA）
+        - 基于电感电流采样的峰值电流控制
+        - 基于霍尔电感电流采样的峰值电流控制
       highlights:
-        - 后续可按“设计目标 - 关键取舍 - 验证结果”补全
+        - 通过提高开关频率降所需低电感感值，从而减小电感体积
+        - 获得完整周期内的电感电流波形，使得控制更加灵活
+        - 避免串联电阻造成的功率损耗，并获得完整周期内的电感电流波形
 
 - id: power-modules
   title: 功率模块
-  description: 面向整机能源链路中的功率变换、供电路径和异常保护，包含无线充电、DC-DC、预充电和缓启动等模块。
+  description: 机器人中的大功率电路模块，包含无线充电、降压模块、预充电和缓启动等模块。
   cover: assets/projects/wireless-charging/c_wpt_7.jpg
   items:
     - id: wireless-charging
-      title: RoboMaster 无线充电系统
-      status: 已开源 / 实机运行
-      summary: 基于 STM32G474 的数控无线充电发射端，可为机器人以 120W、86% 效率进行无线充电。
+      title: 120W 无线充电系统
+      status: 已开源
+      summary: 基于 STM32G474 的数控无线充电发射端，可为机器人以 120W 功率、86% 效率进行无线充电。同时通过纯被动结构实现机械对位。接收端有被动与主动全桥两种方案
       images:
         - assets/projects/wireless-charging/c_wpt_7.jpg
         - assets/projects/wireless-charging/c_wpt_5.jpg
@@ -178,23 +193,20 @@
         - assets/projects/wireless-charging/c_wpt_3.jpg
         - assets/projects/wireless-charging/c_wpt_4.jpg
       metrics:
-        - 最大功率 120W+
-        - 整体充电效率约 86%
-        - 80mm 线圈可承受约 15mm 偏移
+        - 最大功率 150W
+        - title: 整体充电效率约 86%
+          content: 测试条件：供电电压 24V，接收端电压限制 29.5V（规则电压限制）
+        - LCC-S 拓扑，全桥激励源
         - ASK 反向通信实现功率闭环
       highlights:
-        - 使用 LCC-S 拓扑，兼顾效率和抗偏移能力
+        - 鲁棒性强，线圈可承受约 15mm 水平/垂直偏移
+        - 可稳定进行异物检测并触发保护
         - 通过接收端反馈实现功率闭环和异常保护
-        - 设计机械对位结构，提升机器人自动对位可靠性
-      notes:
-        - title: ASK 反向通信
-          content: 接收端通过负载调制向发射端反馈状态，发射端根据反馈调节功率输出。关键点是让通信在功率传输噪声和线圈偏移下仍保持稳定。
-        - title: 抗偏移设计
-          content: 无线充电不是只看最佳对齐点效率，还要看机器人实际停靠误差下的功率和热稳定性。线圈尺寸、补偿网络和机械导向结构需要一起设计。
+        - 纯被动机械对位结构，提升机器人对位可靠性
       links:
         - name: 开源文章：硬件/嵌入式
           url: "https://bbs.robomaster.com/article/761385"
-        - name: 开源文章：机械结构/展示
+        - name: 开源文章：机械结构
           url: "https://bbs.robomaster.com/article/760961"
         - name: 工程文件
           url: "https://github.com/hkustenterprize/RM2025-PowerControlBoard-WirelessCharging"
@@ -204,23 +216,22 @@
           url: "https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-PowerControlBoard-WirelessCharging%2Ftree%2Fmain%2FPowerControlBoard_RXCoil_V0.1"
 
     - id: buck-48v-24v
-      title: 大功率 48V 转 24V 降压模块
+      title: 小体积 48V 转 24V 降压模块
       status: 已开源
-      summary: 小体积 48V 转 24V 降压模块，用于 RoboMaster 无人机云台系统供电。
+      summary: 小体积大功率 48V 转 24V 降压模块，可为感性负载（电机等）供电。
       images:
         - assets/projects/buck-48v-24v/c_buck.jpg
         - assets/projects/buck-48v-24v/c_buck_1.png
       metrics:
         - 最大 20A 输出
         - 体积约 45x22x20mm
-        - 7.5A 负载效率约 96.5%
-        - FCCM 模式空载功耗约 2W
+        - 7.5A 负载下效率 96.5%（包含线损）
+        - 空载功耗约 2W
       highlights:
-        - 使用独立辅助供电，降低高压输入下的空载功耗
-        - FCCM 模式允许输出电流倒灌，适配特殊负载工况
-      notes:
-        - title: 辅助供电与空载功耗
-          content: 高压输入下若直接由主功率芯片内部路径供电，轻载和空载损耗会比较明显。独立辅助供电可以降低控制部分损耗，并改善热设计余量。
+        - title: 使用独立辅助供电代替内部 LDO
+          content: 通过 LMR51610 提供 10V 辅助供电，将空载功耗从 4W 左右降低至 2W，同时减小了 MOSFET 导通电阻，降低了大电流下的发热。
+        - FCCM 模式允许输出电流倒灌，适配电机类负载
+        - 40kHz 穿越频率下可保持约 60° 相位裕度，保证输出响应迅速
       links:
         - name: 开源文章
           url: "https://bbs.robomaster.com/article/760956"
@@ -231,31 +242,54 @@
 
     - id: active-precharge
       title: 基于主动预充电的 48V 缓启动模块
-      status: 待开源 / 待补充
-      summary: 使用主动预充电解决负载存在电流时缓启动失败的问题，面向 48V 大电容和动力负载启动场景。
+      status: 已开源
+      summary: 通过引入主动预充电电路，解决负载存在电流或负载电容过大导致缓启动失败的问题。
       images:
         - assets/projects/active-precharge/c_softstart_0.jpg
       metrics:
         - 预充电峰值电流可达 10A
-        - 目标负载约 8mF 电容 + 4 个无人机动力电机
+        - 可稳定启动约 8mF 负载电容 + 4 个上电过程中存在瞬时电流的无人机动力电机
         - 启动冲击电流控制在约 15A 内
-      highlights:
-        - 使用 LM3409HV 恒流降压特性为负载预充电
-        - 启动后由主功率开关旁路预充电路径
-        - 主功率 MOS 使用 LM5069 驱动
-      notes:
-        - title: 主动预充电的动机
-          content: 传统缓启动更适合近似纯电容负载。当负载在启动阶段已经消耗电流时，软启动路径可能无法按预期抬升母线电压。主动预充电通过受控电流先建立负载端电压，再切换主功率路径。
+      highlights: 
+        - 使用 LM3409HV 恒流降压特性为负载预充电，理论可驱动无限大的负载电容
+        - 避免使用功率 MOS 的 SOA 承受缓启动时的冲击
+        - 在负载短路启动时保证自身不损坏与负载安全
+      links:
+        - name: 开源文章
+          url: "https://bbs.robomaster.com/article/1889455"
+    
+    - id: dcdc
+      title: 直流降压模块
+      summary: 多种方案的直流降压模块，包含 LM3150、LM25117、LM25145、SiC461、LT7820(电荷泵) 等方案
+      images:
+        - assets/projects/dcdc/LM3150.jpg
+        - assets/projects/dcdc/LM25145_1.jpg
+        - assets/projects/dcdc/LM25145_2.jpg
+        - assets/projects/dcdc/LM25117.jpg
+        - assets/projects/dcdc/SiC461.jpg
+        - assets/projects/dcdc/ltc7820.jpg
+      metrics:
+        - 预充电峰值电流可达 10A
+        - 可稳定启动约 8mF 负载电容 + 4 个上电过程中存在瞬时电流的无人机动力电机
+        - 启动冲击电流控制在约 15A 内
+      highlights: 
+        - 使用 LM3409HV 恒流降压特性为负载预充电，理论可驱动无限大的负载电容
+        - 避免使用功率 MOS 的 SOA 承受缓启动时的冲击
+        - 在负载短路启动时保证自身不损坏与负载安全
+      links:
+        - name: 开源文章
+          url: "https://bbs.robomaster.com/article/1889455"
+    
 
 - id: general-modules
   title: 通用模块
-  description: 机器人主控、通信、传感和外设接口
-  cover: assets/projects/main-control-board-v2/c_mcbv2.jpg
+  description: 机器人主控、交换机、光流、全隔离 RS232 转串口等模块
+  cover: assets/projects/ethernet-switch/c_switch.jpg
   items:
     - id: main-control-board-v2
       title: 通用机器人主控板 V2
-      status: 已开源 / 实机运行
-      summary: 第二代通用机器人主控板，采用核心板与扩展板双板结构，在小体积内集成多类机器人外设接口。
+      status: 已开源
+      summary: 第二代通用机器人主控板，采用核心板与扩展板双板结构，在小体积内集成多类机器人外设接口，低成本、高集成度、扩展性强。
       images:
         - assets/projects/main-control-board-v2/c_mcbv2.jpg
         - assets/projects/main-control-board-v2/c_mcbv2_1.jpg
@@ -263,14 +297,10 @@
       metrics:
         - 核心尺寸约 60x40mm
         - 80Pin 板对板连接
-        - 在 8 台机器人上稳定使用一年以上
       highlights:
         - 核心板与扩展板分离，提升复用性和维护性
-        - 针对焊接、维护和电源保护进行优化
-        - 通过统一接口降低不同机器人模块适配成本
-      notes:
-        - title: 双板架构
-          content: 核心板承载 MCU、基础电源和关键调试接口，扩展板承载机器人差异化外设。这样在机器人改版时可以减少核心控制部分返工，同时让接口布局更贴近线束需求。
+        - 在 8 台机器人上稳定使用两年以上
+        - 针对易焊接、维护和电源保护进行优化
       links:
         - name: 开源文章
           url: "https://bbs.robomaster.com/article/760965"
@@ -282,30 +312,45 @@
           url: "https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-G4-MainControlBoard-V2%2Ftree%2Fmain%2FRM2025_G473_MCB_StdExtend"
 
     - id: ethernet-switch
-      title: 小型四口交换机
+      title: 集成激光雷达供电的小型千兆交换机
       status: 已开源
-      summary: 为 RoboMaster 哨兵机器人设计的小型交换机，可同时连接电脑和 MID-360 激光雷达，并集成雷达供电。
+      summary: 为安装有激光雷达的机器人设计的小型交换机，可同时连接机载电脑（千兆）和两台激光雷达（百兆），并集成雷达供电。
       images:
         - assets/projects/ethernet-switch/c_switch.jpg
         - assets/projects/ethernet-switch/c_switch_1.jpg
+        - assets/projects/ethernet-switch/v2_1.jpg
+        - assets/projects/ethernet-switch/v2_2.jpg
       metrics:
-        - 体积约 60x45x10mm
-        - 双口千兆 + 双口百兆
-        - 集成激光雷达供电
+        - 60x45x10mm（V1） 54x45x10mm（V2）
+        - 3*千兆接口（V2） + 2*百兆/供电接口
       highlights:
+        - V2 通过 Chip LAN 变压器实现了更小的体积，同时将千兆接口数量增加到 3 个
         - 接口布置在侧面，适合安装在狭小空间
-        - 用一块板整合通信与雷达供电，简化哨兵线束
+        - 用一块板整合通信与雷达供电，大幅简化接线
       links:
-        - name: 开源文章
+        - name: 开源文章（V1）
           url: "https://bbs.robomaster.com/article/760947"
-        - name: 工程文件
+        - name: 开源文章（V2）
+          url: "https://bbs.robomaster.com/article/1889602"
+        - name: 工程文件（V1）
           url: "https://github.com/hkustenterprize/RM2025-Ethernet-Switch"
-        - name: PCB 预览
+        - name: PCB 预览（V1）
           url: "https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fhkustenterprize%2FRM2025-Ethernet-Switch"
 
+    - id: optical-flow
+      title: 光流模块
+      summary: 用于无人机定位的光流模块，集成光流传感器、多区 TOF、六轴 IMU，通过 STM32 MCU 进行数据获取和处理。
+      images:
+        - assets/projects/optical-flow/1.jpg
+        - assets/projects/optical-flow/2.jpg
+      metrics:
+        - 集成光流传感器、多区 TOF、六轴 IMU
+      highlights:
+        - 体积较小 48x18x8mm
+        - 具有 IMU 加热功能
+    
     - id: engineer-main-control-board
       title: 工程机器人主控板
-      status: 已落地
       summary: 基于 STM32G473 的工程机器人主控板，集成气泵、气阀、气压检测和大功率继电器等功能。
       images:
         - assets/projects/engineer-main-control-board/c_mcbeng_2.jpg
@@ -313,51 +358,91 @@
         - assets/projects/engineer-main-control-board/c_mcbeng_1.jpg
       metrics:
         - 双板结构
-        - 多路气压与气泵驱动
-        - 集成大功率继电器控制
+        - 集成多路气压与气泵驱动
+        - 集成大功率继电器/缓启动电路
       highlights:
         - 使用 MCU 内部运放实现四路气压传感器电压放大和检测
-        - 将工程机器人常用执行与检测接口集中到主控板
-      notes:
-        - title: 气动系统接口集成
-          content: 工程机器人外设类型多、线束复杂。主控板需要同时处理低压传感、阀泵驱动和大功率电源通断，因此接口分区和保护设计比单一控制板更重要。
 
 - id: actuators-drives
   title: 执行器
-  description: 面向机器人执行链路中的电机驱动、激光振镜执行器
-  cover: assets/projects/bldc-foc-board/c_foc_1.jpg
+  description: FOC 电机驱动、高精度激光振镜执行器
+  cover: assets/projects/bldc-foc-board/foc_8115_1.jpg
   items:
-    - id: high-power-foc
-      title: 大功率 FOC 驱动器
-      status: 待补充
-      summary: 为后续补充的大功率 FOC 项目预留位置，可记录功率级、采样、驱动保护、控制闭环和负载测试。
-      metrics:
-        - 功率等级待补充
-        - 电流采样方案待补充
-        - 效率与温升数据待补充
-      highlights:
-        - 后续可作为执行器与驱动方向的重点项目
-
     - id: bldc-foc-board
       title: 无刷电机 FOC 驱动板
-      status: 已验证 / 待补充
-      summary: 基于 STSPIN32G431 开发的 FOC 驱动板，利用 MCU 集成运放实现低位电流采样。
+      status: 开发中
+      summary: 基于 STSPIN32G431 开发的 FOC 驱动板，有适配不同电机的版本（GIM8115-9、DJI E800、GIM6010-8、GIM3510-10）。
       images:
-        - assets/projects/bldc-foc-board/c_foc_1.jpg
-        - assets/projects/bldc-foc-board/c_foc_2.jpg
+        - assets/projects/bldc-foc-board/foc_8115_1.jpg
+        - assets/projects/bldc-foc-board/foc_8115_2.jpg
+        - assets/projects/bldc-foc-board/foc_3510.jpg
+        - assets/projects/bldc-foc-board/foc_6010.jpg
+        - assets/projects/bldc-foc-board/6010_new_top.png
+        - assets/projects/bldc-foc-board/6010_new_bottom.png
+        - assets/projects/bldc-foc-board/8115_new_top.png
+        - assets/projects/bldc-foc-board/8115_new_bottom.png
+        - assets/projects/bldc-foc-board/3510_new_top.png
+        - assets/projects/bldc-foc-board/3510_new_bottom.png
       metrics:
-        - STM32G431 / STSPIN32G431 平台
         - 低位电流采样
-        - MCU 内部运放
+        - 隔离 FDCAN 通讯
+        - 集成 eeprom 记录电机参数
       highlights:
-        - 用于验证电机驱动功率级、采样链路和控制闭环
-      notes:
-        - title: 低位电流采样
-          content: 低位采样实现简单、成本低、对放大器共模要求低，适合快速验证 FOC 控制链路。但它会改变系统地参考下的电流测量方式，保护和噪声处理需要同步考虑。
+        - 使用 MCU 内部运放配合内部基准进行电流采样信号放大，简化电路
+    
+    - id: laser-mirror-driver
+      title: 高精度激光振镜驱动器
+      summary: 基于 LDC (电感-数字传感器) 与 PCB 线圈的高精度激光振镜驱动器，可组成双轴激光振镜系统。
+      images:
+        - assets/projects/laser-mirror-driver/top.jpg
+        - assets/projects/laser-mirror-driver/bottom.jpg
+        - assets/projects/laser-mirror-driver/accuracy.png
+        - assets/projects/laser-mirror-driver/two_axis_1.png
+        - assets/projects/laser-mirror-driver/two_axis.jpg
+        - assets/projects/laser-mirror-driver/single_axis.jpg
+        - assets/projects/laser-mirror-driver/target_board.jpg
+        - assets/projects/laser-mirror-driver/sensor_board.jpg
+      metrics:
+        - title: 角度分辨率 0.001°
+          content: 详见图 3，阶跃响应测试
+        - title: 重复定位精度约 0.006°
+          content: 测试条件：在距离 20m 处观察激光落点，重新上电后闭环至相同位置，激光落点偏差小于 2mm
+        - 双轴激光输出范围 ±40°
+      highlights:
+        - 使用 LDC (电感-数字传感器) 获取高精度位置反馈
+        - 通过 DAC + 大功率运放驱动 PCB 线圈进行电流闭环，避免干扰 LDC
+        - 单板集成 LDC、PCB 线圈、功率驱动和 MCU，保证了机械精度
 
+
+- id: other-capabilities
+  title: 其他/开发中
+  description: 课设、开发中项目
+  cover: assets/projects/fpga-audio/c_fpga.png
+  items:
+    - id: fpga-audio
+      title: 基于 FPGA 的实时音频处理系统
+      status: 课设
+      summary: 基于 BASYS3 开发板实现多种音频滤波功能，并通过 VGA 输出交互界面进行控制和状态显示。
+      images:
+        - assets/projects/fpga-audio/c_fpga.png
+        - assets/projects/fpga-audio/c_fpga_2.jpg
+      metrics:
+        - 5 段均衡器、增益调节
+        - 高低通 IIR 滤波
+        - VGA 图形操作界面
+        - AUX 接口输入、I2S 输出
+      highlights:
+        - 自制 PCB 扩展板提供音频采样适配电路
+        - 通过 5 个 FIR 滤波器实现频谱分割和独立增益控制
+        - 高通/低通 IIR 滤波器可动态切换截止频率
+        - VGA 界面显示频谱、开关、增益和音量信息
+      links:
+        - name: Demo PPT
+          url: "assets/projects/fpga-audio/ELEC4320_Project_Demo.pdf"
+    
     - id: smt-machine
       title: SMT 贴片机
-      status: 课程项目
+      status: 课设
       summary: 与队友合作开发的完整 SMT 贴片机系统，包含步进电机 FOC 驱动板、主控板、屏幕板和 CAN 通信。
       images:
         - assets/projects/smt-machine/c_smt.jpg
@@ -374,32 +459,18 @@
       links:
         - name: GitHub 链接
           url: "https://github.com/baoqi-zhong/Awesome-SMT-Machine"
-
-- id: other-capabilities
-  title: 其他/开发中
-  description: 课设、开发中项目
-  cover: assets/projects/fpga-audio/c_fpga.png
-  items:
-    - id: fpga-audio
-      title: 基于 FPGA 的音频处理系统
-      status: 课程项目
-      summary: 基于 BASYS3 开发板实现多种音频滤波功能，并通过 VGA 输出交互界面进行控制和状态显示。
+      
+    - id: fpga
+      title: FPGA 核心板
+      summary: XC7Z010 核心板
       images:
-        - assets/projects/fpga-audio/c_fpga.png
-        - assets/projects/fpga-audio/c_fpga_2.jpg
+        - assets/projects/fpga/v0.1_top.jpg
+        - assets/projects/fpga/v0.2_top.jpg
+        - assets/projects/fpga/v0.1_bottom.jpg
       metrics:
-        - 5 段均衡器
-        - FIR / IIR 滤波
-        - VGA 图形界面
-        - ADC 采样与 I2S 输出
+        - XC7Z010 核心板，单片 DDR3
       highlights:
-        - 自制 PCB 扩展板提供音频采样适配电路
-        - 通过 5 个 FIR 滤波器实现频谱分割和独立增益控制
-        - 高通/低通 IIR 滤波器可动态切换截止频率
-        - VGA 界面显示频谱、开关、增益和音量信息
-      notes:
-        - title: FPGA 音频链路
-          content: 项目覆盖从模拟音频适配、ADC 采样、数字滤波、I2S 输出到 VGA 可视化的完整链路，重点是把数字逻辑、时序和外部硬件接口打通。
-      links:
-        - name: Demo PPT
-          url: "assets/projects/fpga-audio/ELEC4320_Project_Demo.pdf"
+        - 标准工艺四层板完成单片 DDR3 布线
+
+      
+
