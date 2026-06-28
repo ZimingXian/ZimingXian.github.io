@@ -111,7 +111,7 @@
     - id: buffer-capacitor-system-boost
       title: 关节电机缓冲电容（升压并联方案）
       status: 使用中
-      summary: 通过双向四开关 BuckBoost 向电容组充电，再通过继电器连接电机，为关节电机提供超过 2000W 爆发功率。<b>特化方向：高功率、持续高负载运行</b>
+      summary: 通过双向四开关 BuckBoost 向电容组充电，再通过继电器连接电机，为关节电机提供超过 2000W 爆发功率，使得电机输出完全拜托电池放电能力限制。<b>特化方向：高功率、持续高负载运行</b>
       images:
         - assets/projects/buffer-capacitor-system-boost/full_system.jpg
         - assets/projects/buffer-capacitor-system-boost/controller.jpg
@@ -137,6 +137,8 @@
       links:
         - name: 使用手册
           url: "assets/projects/buffer-capacitor-system-boost/Manual.pdf"
+        - name: 效果展示
+          url: "https://www.bilibili.com/video/BV1VtVr6GEEf/"
     
     - id: supercap-controller-26
       title: 底盘超级电容控制器
@@ -262,11 +264,11 @@
       title: 直流降压模块
       summary: 多种方案的直流降压模块，包含 LM3150、LM25117、LM25145、SiC461、LT7820(电荷泵) 等方案
       images:
-        - assets/projects/dcdc/LM3150.jpg
-        - assets/projects/dcdc/LM25145_1.jpg
-        - assets/projects/dcdc/LM25145_2.jpg
-        - assets/projects/dcdc/LM25117.jpg
-        - assets/projects/dcdc/SiC461.jpg
+        - assets/projects/dcdc/LM3150.JPG
+        - assets/projects/dcdc/LM25145_1.JPG
+        - assets/projects/dcdc/LM25145_2.JGP
+        - assets/projects/dcdc/LM25117.JGP
+        - assets/projects/dcdc/SiC461.JPG
         - assets/projects/dcdc/ltc7820.jpg
       metrics:
         - 预充电峰值电流可达 10A
@@ -341,8 +343,8 @@
       title: 光流模块
       summary: 用于无人机定位的光流模块，集成光流传感器、多区 TOF、六轴 IMU，通过 STM32 MCU 进行数据获取和处理。
       images:
-        - assets/projects/optical-flow/1.jpg
-        - assets/projects/optical-flow/2.jpg
+        - assets/projects/optical-flow/1.JPG
+        - assets/projects/optical-flow/2.JPG
       metrics:
         - 集成光流传感器、多区 TOF、六轴 IMU
       highlights:
@@ -394,12 +396,12 @@
       title: 高精度激光振镜驱动器
       summary: 基于 LDC (电感-数字传感器) 与 PCB 线圈的高精度激光振镜驱动器，可组成双轴激光振镜系统。
       images:
-        - assets/projects/laser-mirror-driver/top.jpg
-        - assets/projects/laser-mirror-driver/bottom.jpg
+        - assets/projects/laser-mirror-driver/top.JPG
+        - assets/projects/laser-mirror-driver/bottom.JPG
         - assets/projects/laser-mirror-driver/accuracy.png
         - assets/projects/laser-mirror-driver/two_axis_1.png
-        - assets/projects/laser-mirror-driver/two_axis.jpg
-        - assets/projects/laser-mirror-driver/single_axis.jpg
+        - assets/projects/laser-mirror-driver/two_axis.JPG
+        - assets/projects/laser-mirror-driver/single_axis.JPG
         - assets/projects/laser-mirror-driver/target_board.jpg
         - assets/projects/laser-mirror-driver/sensor_board.jpg
       metrics:
@@ -464,9 +466,9 @@
       title: FPGA 核心板
       summary: XC7Z010 核心板
       images:
-        - assets/projects/fpga/v0.1_top.jpg
+        - assets/projects/fpga/v0.1_top.JPG
         - assets/projects/fpga/v0.2_top.jpg
-        - assets/projects/fpga/v0.1_bottom.jpg
+        - assets/projects/fpga/v0.1_bottom.JPG
       metrics:
         - XC7Z010 核心板，单片 DDR3
       highlights:
