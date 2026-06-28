@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Xian Ziming | 硬件作品集</title>
-  <link rel="stylesheet" href="assets/css/custom.css?v=1782678503">
+  <link rel="stylesheet" href="assets/css/custom.css?v=1782680284">
 </head>
 <body>
   <div class="page-shell">
@@ -76,9 +76,8 @@
       </section>
 
       <nav class="sidebar-section page-nav" aria-label="页面导航">
-        <h2>目录</h2>
         
-        <a class="nav-link" href="#supercap-system">超级电容系统</a>
+        <a class="nav-link nav-mainlink" href="#supercap-system">数控电源</a>
         
         <a class="nav-link nav-sublink" href="#supercap-controller">底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖）</a>
         
@@ -93,7 +92,7 @@
         <a class="nav-link nav-sublink" href="#supercap-controller-develop">其他超级电容控制器方案</a>
         
         
-        <a class="nav-link" href="#power-modules">功率模块</a>
+        <a class="nav-link nav-mainlink" href="#power-modules">供电系统</a>
         
         <a class="nav-link nav-sublink" href="#wireless-charging">120W 无线充电系统</a>
         
@@ -104,7 +103,7 @@
         <a class="nav-link nav-sublink" href="#dcdc">直流降压模块</a>
         
         
-        <a class="nav-link" href="#general-modules">通用模块</a>
+        <a class="nav-link nav-mainlink" href="#general-modules">通用硬件模块</a>
         
         <a class="nav-link nav-sublink" href="#main-control-board-v2">通用机器人主控板 V2</a>
         
@@ -115,14 +114,14 @@
         <a class="nav-link nav-sublink" href="#engineer-main-control-board">工程机器人主控板</a>
         
         
-        <a class="nav-link" href="#actuators-drives">执行器</a>
+        <a class="nav-link nav-mainlink" href="#actuators-drives">执行器</a>
         
         <a class="nav-link nav-sublink" href="#bldc-foc-board">无刷电机 FOC 驱动板</a>
         
         <a class="nav-link nav-sublink" href="#laser-mirror-driver">高精度激光振镜驱动器</a>
         
         
-        <a class="nav-link" href="#other-capabilities">其他/开发中</a>
+        <a class="nav-link nav-mainlink" href="#other-capabilities">其他项目</a>
         
         <a class="nav-link nav-sublink" href="#fpga-audio">基于 FPGA 的实时音频处理系统</a>
         
@@ -139,7 +138,7 @@
       <section class="direction-overview">
         <div class="section-heading">
           <h2>作品集概览</h2>
-          <p>按机器人整机硬件链路组织项目：从能量缓存、功率变换、主控通信到执行器驱动，体现对整机架构、接口边界、功率路径和实机可靠性的完整理解。</p>
+          <p>不同项目按技术点分类展示，点击卡片即可跳转</p>
         </div>
 
         <div class="direction-grid" aria-label="作品集目录">
@@ -148,12 +147,12 @@
           <a class="direction-card" href="#supercap-system">
             
             <span class="direction-cover">
-              <img src="assets/projects/supercap-controller/cover.png" alt="超级电容系统">
+              <img src="assets/projects/supercap-controller/cover.png" alt="数控电源">
             </span>
             
             <span class="direction-body">
-              <strong>超级电容系统</strong>
-              <span>与超级电容相关的功率系统，包含硬件架构与控制算法设计。</span>
+              <strong>数控电源</strong>
+              <span>基于 MCU 的数控电源系统，包含硬件架构与控制算法设计。</span>
             </span>
           </a>
           
@@ -161,11 +160,11 @@
           <a class="direction-card" href="#power-modules">
             
             <span class="direction-cover">
-              <img src="assets/projects/wireless-charging/c_wpt_7.jpg" alt="功率模块">
+              <img src="assets/projects/wireless-charging/c_wpt_7.jpg" alt="供电系统">
             </span>
             
             <span class="direction-body">
-              <strong>功率模块</strong>
+              <strong>供电系统</strong>
               <span>机器人中的功率模块，包含电压转换、大功率无线充电、缓启动/继电器模块。</span>
             </span>
           </a>
@@ -174,12 +173,12 @@
           <a class="direction-card" href="#general-modules">
             
             <span class="direction-cover">
-              <img src="assets/projects/ethernet-switch/c_switch.jpg" alt="通用模块">
+              <img src="assets/projects/ethernet-switch/c_switch.jpg" alt="通用硬件模块">
             </span>
             
             <span class="direction-body">
-              <strong>通用模块</strong>
-              <span>机器人中的通用模块，包含主控板、交换机。</span>
+              <strong>通用硬件模块</strong>
+              <span>机器人中的通用模块，包含主控板、交换机、光流模块等。</span>
             </span>
           </a>
           
@@ -200,11 +199,11 @@
           <a class="direction-card" href="#other-capabilities">
             
             <span class="direction-cover">
-              <img src="assets/projects/fpga-audio/c_fpga.png" alt="其他/开发中">
+              <img src="assets/projects/fpga-audio/c_fpga.png" alt="其他项目">
             </span>
             
             <span class="direction-body">
-              <strong>其他/开发中</strong>
+              <strong>其他项目</strong>
               <span>FPGA、课程设计项目、开发中项目。</span>
             </span>
           </a>
@@ -215,7 +214,7 @@
       
       <section class="category-section observed-section" id="supercap-system">
         <div class="section-heading">
-          <h2>超级电容系统</h2>
+          <h2>数控电源</h2>
           <p>以<b>双向四开关 DCDC </b>为核心电路、利用超级电容高功率密度的特性为机器人底盘电机、关节电机提供缓冲，提高系统瞬时功率上限。采用峰值模拟电流内环 + 数字外环实现较快的响应速度；以可靠性作为核心设计指标，完善的保护机制经过长期使用验证；基于不同应用场景进行优化设计，以达到最大效能。</p>
         </div>
 
@@ -397,9 +396,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖） 相关链接">
                     
                     <a href="https://bbs.robomaster.com/article/761385" target="_blank" rel="noopener">
@@ -445,8 +444,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -561,9 +560,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="高能量密度超级电容组 相关链接">
                     
                     <a href="https://bbs.robomaster.com/article/760959?source=8" target="_blank" rel="noopener">
@@ -588,8 +587,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -716,12 +715,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -872,9 +867,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="关节电机缓冲电容（升压并联方案） 相关链接">
                     
                     <a href="assets/projects/buffer-capacitor-system-boost/Manual.pdf" target="_blank" rel="noopener">
@@ -892,8 +887,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -1020,12 +1015,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -1089,12 +1080,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -1104,7 +1091,7 @@
       
       <section class="category-section observed-section" id="power-modules">
         <div class="section-heading">
-          <h2>功率模块</h2>
+          <h2>供电系统</h2>
           <p>机器人中的大功率电路模块，包含无线充电、降压模块、预充电和缓启动等模块。</p>
         </div>
 
@@ -1228,9 +1215,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="120W 无线充电系统 相关链接">
                     
                     <a href="https://bbs.robomaster.com/article/761385" target="_blank" rel="noopener">
@@ -1269,8 +1256,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -1365,9 +1352,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="小体积 48V 转 24V 降压模块 相关链接">
                     
                     <a href="https://bbs.robomaster.com/article/760956" target="_blank" rel="noopener">
@@ -1392,8 +1379,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -1466,9 +1453,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="基于主动预充电的 48V 缓启动模块 相关链接">
                     
                     <a href="https://bbs.robomaster.com/article/1889455" target="_blank" rel="noopener">
@@ -1479,8 +1466,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -1497,9 +1484,9 @@
                 
                 <img class="media-slide" src="assets/projects/dcdc/LM25145_1.JPG" alt="直流降压模块 图片 2" data-slide-index="1">
                 
-                <img class="media-slide" src="assets/projects/dcdc/LM25145_2.JGP" alt="直流降压模块 图片 3" data-slide-index="2">
+                <img class="media-slide" src="assets/projects/dcdc/LM25145_2.JPG" alt="直流降压模块 图片 3" data-slide-index="2">
                 
-                <img class="media-slide" src="assets/projects/dcdc/LM25117.JGP" alt="直流降压模块 图片 4" data-slide-index="3">
+                <img class="media-slide" src="assets/projects/dcdc/LM25117.JPG" alt="直流降压模块 图片 4" data-slide-index="3">
                 
                 <img class="media-slide" src="assets/projects/dcdc/SiC461.JPG" alt="直流降压模块 图片 5" data-slide-index="4">
                 
@@ -1538,21 +1525,7 @@
                 <section class="project-info-column">
                   <h4>关键参数</h4>
                   
-                  <ul class="compact-list">
-                    
-                    
-                    <li><span class="list-text">预充电峰值电流可达 10A</span></li>
-                    
-                    
-                    
-                    <li><span class="list-text">可稳定启动约 8mF 负载电容 + 4 个上电过程中存在瞬时电流的无人机动力电机</span></li>
-                    
-                    
-                    
-                    <li><span class="list-text">启动冲击电流控制在约 15A 内</span></li>
-                    
-                    
-                  </ul>
+                  <p class="empty-note">待补充</p>
                   
                 </section>
 
@@ -1560,40 +1533,12 @@
                   <h4>亮点与创新</h4>
                   
                   
-                  <ul class="compact-list insight-list">
-                    
-                    
-                    
-                    <li><span class="list-text">使用 LM3409HV 恒流降压特性为负载预充电，理论可驱动无限大的负载电容</span></li>
-                    
-                    
-                    
-                    <li><span class="list-text">避免使用功率 MOS 的 SOA 承受缓启动时的冲击</span></li>
-                    
-                    
-                    
-                    <li><span class="list-text">在负载短路启动时保证自身不损坏与负载安全</span></li>
-                    
-                    
-                  </ul>
+                  <p class="empty-note">待补充</p>
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <div class="link-row" aria-label="直流降压模块 相关链接">
-                    
-                    <a href="https://bbs.robomaster.com/article/1889455" target="_blank" rel="noopener">
-                      
-                      <span class="link-icon icon-rm" aria-hidden="true"></span>
-                      
-                      开源文章
-                    </a>
-                    
-                  </div>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -1603,7 +1548,7 @@
       
       <section class="category-section observed-section" id="general-modules">
         <div class="section-heading">
-          <h2>通用模块</h2>
+          <h2>通用硬件模块</h2>
           <p>机器人主控、交换机、光流、全隔离 RS232 转串口等模块</p>
         </div>
 
@@ -1687,9 +1632,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="通用机器人主控板 V2 相关链接">
                     
                     <a href="https://bbs.robomaster.com/article/760965" target="_blank" rel="noopener">
@@ -1721,8 +1666,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -1809,9 +1754,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="集成激光雷达供电的小型千兆交换机 相关链接">
                     
                     <a href="https://bbs.robomaster.com/article/760947" target="_blank" rel="noopener">
@@ -1843,8 +1788,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -1915,12 +1860,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -1999,12 +1940,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -2122,12 +2059,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -2250,12 +2183,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -2265,7 +2194,7 @@
       
       <section class="category-section observed-section" id="other-capabilities">
         <div class="section-heading">
-          <h2>其他/开发中</h2>
+          <h2>其他项目</h2>
           <p>课设、开发中项目</p>
         </div>
 
@@ -2357,9 +2286,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="基于 FPGA 的实时音频处理系统 相关链接">
                     
                     <a href="assets/projects/fpga-audio/ELEC4320_Project_Demo.pdf" target="_blank" rel="noopener">
@@ -2370,8 +2299,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -2458,9 +2387,9 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
+                
+                
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="SMT 贴片机 相关链接">
                     
                     <a href="https://github.com/baoqi-zhong/Awesome-SMT-Machine" target="_blank" rel="noopener">
@@ -2471,8 +2400,8 @@
                     </a>
                     
                   </div>
-                  
                 </section>
+                
               </div>
             </div>
           </article>
@@ -2543,12 +2472,8 @@
                   
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  
-                  <p class="empty-note">待补充</p>
-                  
-                </section>
+                
+                
               </div>
             </div>
           </article>
@@ -2617,22 +2542,44 @@
       });
 
       const navLinks = Array.from(document.querySelectorAll('.nav-link'));
-      const sections = Array.from(document.querySelectorAll('.observed-section'));
+      const observedTargets = Array.from(document.querySelectorAll('.observed-section, .project-card'));
 
       if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const visibleTargets = new Set();
 
-          if (!visible) return;
+        const setActiveNav = () => {
+          const anchorLine = window.innerHeight * 0.28;
+          const current = Array.from(visibleTargets)
+            .map((target) => {
+              const rect = target.getBoundingClientRect();
+              return {
+                target,
+                distance: Math.abs(rect.top - anchorLine)
+              };
+            })
+            .sort((a, b) => a.distance - b.distance)[0];
+
+          if (!current) return;
 
           navLinks.forEach((link) => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id);
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current.target.id);
           });
-        }, { rootMargin: '-20% 0px -65% 0px', threshold: [0.1, 0.25, 0.5] });
+        };
 
-        sections.forEach((section) => observer.observe(section));
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleTargets.add(entry.target);
+            } else {
+              visibleTargets.delete(entry.target);
+            }
+          });
+
+          setActiveNav();
+        }, { rootMargin: '-15% 0px -55% 0px', threshold: [0, 0.1, 0.35] });
+
+        observedTargets.forEach((target) => observer.observe(target));
+        window.addEventListener('scroll', setActiveNav, { passive: true });
       }
     });
   </script>

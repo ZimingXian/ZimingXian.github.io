@@ -26,14 +26,14 @@ emails:
 
 portfolio:
   title: 作品集概览
-  description: 按机器人整机硬件链路组织项目：从能量缓存、功率变换、主控通信到执行器驱动，体现对整机架构、接口边界、功率路径和实机可靠性的完整理解。
+  description: 不同项目按技术点分类展示，点击卡片即可跳转
   cards:
     - id: supercap-system
-      description: 与超级电容相关的功率系统，包含硬件架构与控制算法设计。
+      description: 基于 MCU 的数控电源系统，包含硬件架构与控制算法设计。
     - id: power-modules
       description: 机器人中的功率模块，包含电压转换、大功率无线充电、缓启动/继电器模块。
     - id: general-modules
-      description: 机器人中的通用模块，包含主控板、交换机。
+      description: 机器人中的通用模块，包含主控板、交换机、光流模块等。
     - id: actuators-drives
       description: 机器人中的执行器，包含 FOC 电机驱动、高精度激光振镜驱动器。
     - id: other-capabilities

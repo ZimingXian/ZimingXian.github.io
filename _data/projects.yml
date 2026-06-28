@@ -1,5 +1,5 @@
 ﻿- id: supercap-system
-  title: 超级电容系统
+  title: 数控电源
   description: 以<b>双向四开关 DCDC </b>为核心电路、利用超级电容高功率密度的特性为机器人底盘电机、关节电机提供缓冲，提高系统瞬时功率上限。采用峰值模拟电流内环 + 数字外环实现较快的响应速度；以可靠性作为核心设计指标，完善的保护机制经过长期使用验证；基于不同应用场景进行优化设计，以达到最大效能。
   cover: assets/projects/supercap-controller/cover.png
   items:
@@ -177,7 +177,7 @@
         - 避免串联电阻造成的功率损耗，并获得完整周期内的电感电流波形
 
 - id: power-modules
-  title: 功率模块
+  title: 供电系统
   description: 机器人中的大功率电路模块，包含无线充电、降压模块、预充电和缓启动等模块。
   cover: assets/projects/wireless-charging/c_wpt_7.jpg
   items:
@@ -266,25 +266,18 @@
       images:
         - assets/projects/dcdc/LM3150.JPG
         - assets/projects/dcdc/LM25145_1.JPG
-        - assets/projects/dcdc/LM25145_2.JGP
-        - assets/projects/dcdc/LM25117.JGP
+        - assets/projects/dcdc/LM25145_2.JPG
+        - assets/projects/dcdc/LM25117.JPG
         - assets/projects/dcdc/SiC461.JPG
         - assets/projects/dcdc/ltc7820.jpg
       metrics:
-        - 预充电峰值电流可达 10A
-        - 可稳定启动约 8mF 负载电容 + 4 个上电过程中存在瞬时电流的无人机动力电机
-        - 启动冲击电流控制在约 15A 内
+
       highlights: 
-        - 使用 LM3409HV 恒流降压特性为负载预充电，理论可驱动无限大的负载电容
-        - 避免使用功率 MOS 的 SOA 承受缓启动时的冲击
-        - 在负载短路启动时保证自身不损坏与负载安全
-      links:
-        - name: 开源文章
-          url: "https://bbs.robomaster.com/article/1889455"
+
     
 
 - id: general-modules
-  title: 通用模块
+  title: 通用硬件模块
   description: 机器人主控、交换机、光流、全隔离 RS232 转串口等模块
   cover: assets/projects/ethernet-switch/c_switch.jpg
   items:
@@ -417,7 +410,7 @@
 
 
 - id: other-capabilities
-  title: 其他/开发中
+  title: 其他项目
   description: 课设、开发中项目
   cover: assets/projects/fpga-audio/c_fpga.png
   items:

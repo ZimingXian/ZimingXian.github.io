@@ -61,9 +61,8 @@ layout: null
       </section>
 
       <nav class="sidebar-section page-nav" aria-label="页面导航">
-        <h2>目录</h2>
         {% for category in site.data.projects %}
-        <a class="nav-link" href="#{{ category.id }}">{{ category.title }}</a>
+        <a class="nav-link nav-mainlink" href="#{{ category.id }}">{{ category.title }}</a>
         {% for item in category.items %}
         <a class="nav-link nav-sublink" href="#{{ item.id }}">{{ item.title }}</a>
         {% endfor %}
@@ -200,9 +199,9 @@ layout: null
                   {% endif %}
                 </section>
 
-                <section class="project-info-column">
-                  <h4>相关链接</h4>
-                  {% if item.links %}
+                {% assign link_count = item.links | size %}
+                {% if link_count > 0 %}
+                <section class="project-info-column project-links-column">
                   <div class="link-row" aria-label="{{ item.title }} 相关链接">
                     {% for link in item.links %}
                     <a href="{{ link.url }}" target="_blank" rel="noopener">
@@ -221,10 +220,8 @@ layout: null
                     </a>
                     {% endfor %}
                   </div>
-                  {% else %}
-                  <p class="empty-note">待补充</p>
-                  {% endif %}
                 </section>
+                {% endif %}
               </div>
             </div>
           </article>
@@ -293,22 +290,44 @@ layout: null
       });
 
       const navLinks = Array.from(document.querySelectorAll('.nav-link'));
-      const sections = Array.from(document.querySelectorAll('.observed-section'));
+      const observedTargets = Array.from(document.querySelectorAll('.observed-section, .project-card'));
 
       if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const visibleTargets = new Set();
 
-          if (!visible) return;
+        const setActiveNav = () => {
+          const anchorLine = window.innerHeight * 0.28;
+          const current = Array.from(visibleTargets)
+            .map((target) => {
+              const rect = target.getBoundingClientRect();
+              return {
+                target,
+                distance: Math.abs(rect.top - anchorLine)
+              };
+            })
+            .sort((a, b) => a.distance - b.distance)[0];
+
+          if (!current) return;
 
           navLinks.forEach((link) => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id);
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current.target.id);
           });
-        }, { rootMargin: '-20% 0px -65% 0px', threshold: [0.1, 0.25, 0.5] });
+        };
 
-        sections.forEach((section) => observer.observe(section));
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleTargets.add(entry.target);
+            } else {
+              visibleTargets.delete(entry.target);
+            }
+          });
+
+          setActiveNav();
+        }, { rootMargin: '-15% 0px -55% 0px', threshold: [0, 0.1, 0.35] });
+
+        observedTargets.forEach((target) => observer.observe(target));
+        window.addEventListener('scroll', setActiveNav, { passive: true });
       }
     });
   </script>
