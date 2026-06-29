@@ -721,10 +721,45 @@ a {
   background: var(--panel);
 }
 
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 21;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 54px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 8px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.modal-nav:hover {
+  background: rgba(0, 0, 0, 0.52);
+}
+
+.modal-prev {
+  left: 18px;
+}
+
+.modal-next {
+  right: 18px;
+}
+
+.image-modal.single-image .modal-nav {
+  display: none;
+}
+
 .modal-close {
   position: absolute;
   top: 16px;
   right: 16px;
+  z-index: 22;
   min-width: 48px;
   min-height: 34px;
   border: 1px solid rgba(255, 255, 255, 0.4);

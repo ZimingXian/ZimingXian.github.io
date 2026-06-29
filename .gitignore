@@ -1,1 +1,7 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
 portfolio-offline.zip
+jekyll-server.out.log
+jekyll-server.err.log

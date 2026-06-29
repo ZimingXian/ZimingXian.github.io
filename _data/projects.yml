@@ -226,7 +226,7 @@
       summary: 小体积大功率 48V 转 24V 降压模块，可为感性负载（电机等）供电。
       images:
         - assets/projects/buck-48v-24v/c_buck.jpg
-        - assets/projects/buck-48v-24v/c_buck_1.png
+        - assets/projects/buck-48v-24v/c_buck_1.jpg
       metrics:
         - 最大 20A 输出
         - 体积约 45x22x20mm
@@ -376,12 +376,12 @@
         - assets/projects/bldc-foc-board/foc_8115_2.jpg
         - assets/projects/bldc-foc-board/foc_3510.jpg
         - assets/projects/bldc-foc-board/foc_6010.jpg
-        - assets/projects/bldc-foc-board/6010_new_top.png
-        - assets/projects/bldc-foc-board/6010_new_bottom.png
-        - assets/projects/bldc-foc-board/8115_new_top.png
-        - assets/projects/bldc-foc-board/8115_new_bottom.png
-        - assets/projects/bldc-foc-board/3510_new_top.png
-        - assets/projects/bldc-foc-board/3510_new_bottom.png
+        - assets/projects/bldc-foc-board/6010_new_top.jpg
+        - assets/projects/bldc-foc-board/6010_new_bottom.jpg
+        - assets/projects/bldc-foc-board/8115_new_top.jpg
+        - assets/projects/bldc-foc-board/8115_new_bottom.jpg
+        - assets/projects/bldc-foc-board/3510_new_top.jpg
+        - assets/projects/bldc-foc-board/3510_new_bottom.jpg
       metrics:
         - 低位电流采样
         - 隔离 FDCAN 通讯
@@ -416,14 +416,14 @@
 - id: other-capabilities
   title: 其他项目
   description: 课设、开发中项目
-  cover: assets/projects/fpga-audio/c_fpga.png
+  cover: assets/projects/fpga-audio/c_fpga.jpg
   items:
     - id: fpga-audio
       title: 基于 FPGA 的实时音频处理系统
       status: 课设
       summary: 基于 BASYS3 开发板实现多种音频滤波功能，并通过 VGA 输出交互界面进行控制和状态显示。
       images:
-        - assets/projects/fpga-audio/c_fpga.png
+        - assets/projects/fpga-audio/c_fpga.jpg
         - assets/projects/fpga-audio/c_fpga_1.jpg
         - assets/projects/fpga-audio/c_fpga_2.jpg
       metrics:

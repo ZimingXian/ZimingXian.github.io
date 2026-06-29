@@ -234,7 +234,9 @@ layout: null
 
   <div class="image-modal" id="imageModal" aria-hidden="true">
     <button class="modal-close" id="modalClose" type="button" aria-label="关闭图片预览">关闭</button>
+    <button class="modal-nav modal-prev" id="modalPrev" type="button" aria-label="上一张图片">‹</button>
     <img id="modalImage" src="" alt="项目图片预览">
+    <button class="modal-nav modal-next" id="modalNext" type="button" aria-label="下一张图片">›</button>
   </div>
 
   <script>
@@ -242,6 +244,30 @@ layout: null
       const modal = document.getElementById('imageModal');
       const modalImage = document.getElementById('modalImage');
       const modalClose = document.getElementById('modalClose');
+      const modalPrev = document.getElementById('modalPrev');
+      const modalNext = document.getElementById('modalNext');
+      let activeSlides = [];
+      let activeSlideIndex = 0;
+      let activeShowSlide = null;
+
+      const openModal = (slides, index, showSlide) => {
+        activeSlides = slides;
+        activeSlideIndex = index;
+        activeShowSlide = showSlide;
+        modalImage.src = activeSlides[activeSlideIndex].src;
+        modal.classList.toggle('single-image', activeSlides.length <= 1);
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      };
+
+      const showModalSlide = (step) => {
+        if (!activeSlides.length) return;
+        activeSlideIndex = (activeSlideIndex + step + activeSlides.length) % activeSlides.length;
+        if (activeShowSlide) {
+          activeShowSlide(activeSlideIndex);
+        }
+        modalImage.src = activeSlides[activeSlideIndex].src;
+      };
 
       document.querySelectorAll('.project-media').forEach((media) => {
         const slides = Array.from(media.querySelectorAll('.media-slide'));
@@ -262,11 +288,9 @@ layout: null
           });
         });
 
-        slides.forEach((slide) => {
+        slides.forEach((slide, slideIndex) => {
           slide.addEventListener('click', () => {
-            modalImage.src = slide.src;
-            modal.classList.add('open');
-            modal.setAttribute('aria-hidden', 'false');
+            openModal(slides, slideIndex, showSlide);
           });
         });
       });
@@ -275,17 +299,33 @@ layout: null
         modal.classList.remove('open');
         modal.setAttribute('aria-hidden', 'true');
         modalImage.src = '';
+        activeSlides = [];
+        activeSlideIndex = 0;
+        activeShowSlide = null;
       };
 
       modalClose.addEventListener('click', closeModal);
+      modalPrev.addEventListener('click', (event) => {
+        event.stopPropagation();
+        showModalSlide(-1);
+      });
+      modalNext.addEventListener('click', (event) => {
+        event.stopPropagation();
+        showModalSlide(1);
+      });
       modal.addEventListener('click', (event) => {
         if (event.target === modal) {
           closeModal();
         }
       });
       document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal.classList.contains('open')) {
+        if (!modal.classList.contains('open')) return;
+        if (event.key === 'Escape') {
           closeModal();
+        } else if (event.key === 'ArrowLeft') {
+          showModalSlide(-1);
+        } else if (event.key === 'ArrowRight') {
+          showModalSlide(1);
         }
       });
 
