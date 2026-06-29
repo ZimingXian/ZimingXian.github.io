@@ -91,7 +91,7 @@
       status: 使用中
       summary: 将电容组通过双向四开关 BuckBoost 连接至供电母线，通过超级电容放电为关节电机提供额外爆发功率（~800W），提升整机稳定性与输出能力。<b>特化方向：高集成度、高功率</b>
       images:
-        - assets/projects/buffer-capacitor-system-bypass/bottom.png
+        - assets/projects/buffer-capacitor-system-bypass/bottom.jpg
         - assets/projects/buffer-capacitor-system-bypass/top.jpg
         - assets/projects/buffer-capacitor-system-bypass/heat_sink.jpg
       metrics:
