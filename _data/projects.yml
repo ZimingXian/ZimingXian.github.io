@@ -20,6 +20,8 @@
         - assets/projects/supercap-controller/buckboost_sequence.png
         - assets/projects/supercap-controller/boostbuck_sequence.png
         - assets/projects/supercap-controller/boost_sequence.png
+        - assets/projects/supercap-controller/c_supercap_11.png
+        - assets/projects/supercap-controller/c_supercap_12.png
       metrics:
         - title: 峰值 400W+ 额外输出功率
           content: 受限于比赛规则中的电容组电压 (30V)、电流 (15A) 限制
@@ -122,6 +124,7 @@
         - 集成具有 SOA 限制功能的高位开关
         - title: 持续 200W 负载下控制器温度低于 60°C
           content: 输入电压 20-24V，电容电压29V，被动散热
+        - 一体 CNC 底壳辅助散热、提高强度 
       highlights:
         - 集成超级电容单体电压监测
         - title: 具有完善的交互机制，通过 LED 与蜂鸣器指示控制器工作状态
@@ -289,6 +292,7 @@
         - assets/projects/main-control-board-v2/c_mcbv2.jpg
         - assets/projects/main-control-board-v2/c_mcbv2_1.jpg
         - assets/projects/main-control-board-v2/c_mcbv2_2.jpg
+        - assets/projects/main-control-board-v2/c_mcb.jpg
       metrics:
         - 核心尺寸约 60x40mm
         - 80Pin 板对板连接
@@ -420,6 +424,7 @@
       summary: 基于 BASYS3 开发板实现多种音频滤波功能，并通过 VGA 输出交互界面进行控制和状态显示。
       images:
         - assets/projects/fpga-audio/c_fpga.png
+        - assets/projects/fpga-audio/c_fpga_1.jpg
         - assets/projects/fpga-audio/c_fpga_2.jpg
       metrics:
         - 5 段均衡器、增益调节
