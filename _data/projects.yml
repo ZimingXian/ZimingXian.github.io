@@ -1,14 +1,14 @@
 ﻿- id: supercap-system
   title: 数控电源
   description: 以<b>双向四开关 DCDC </b>为核心电路、利用超级电容高功率密度的特性为机器人底盘电机、关节电机提供缓冲，提高系统瞬时功率上限。采用峰值模拟电流内环 + 数字外环实现较快的响应速度；以可靠性作为核心设计指标，完善的保护机制经过长期使用验证；基于不同应用场景进行优化设计，以达到最大效能。
-  cover: assets/projects/supercap-controller/cover.png
+  cover: assets/projects/supercap-controller/cover.jpg
   items:
     - id: supercap-controller
       title: 底盘超级电容控制器（RM AWARD 2025 / 开源奖三等奖）
       status: 已开源
       summary: 基于 STM32G474 的双向四开关 BuckBoost 超级电容控制器，可为机器人底盘提供 400W+ 额外功率。<b>特化方向：低空载功耗、小体积</b>
       images:
-        - assets/projects/supercap-controller/cover.png
+        - assets/projects/supercap-controller/cover.jpg
         - assets/projects/supercap-controller/top.jpg
         - assets/projects/supercap-controller/bottom.jpg
         - assets/projects/supercap-controller/efficiency.png
